@@ -65,6 +65,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'sslmode': 'require',
+            'connect_timeout': 10,
         },
     },
 ]
@@ -80,7 +82,7 @@ WSGI_APPLICATION = 'einstein_coding.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         default='sqlite:///db.sqlite3',
-        conn_max_age=600
+        conn_max_age=0
     )
 }
 
