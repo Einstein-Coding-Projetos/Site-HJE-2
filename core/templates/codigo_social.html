@@ -12,7 +12,12 @@
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'imgs/HJE2.ico' %}">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <meta name="theme-color" content="white">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: dark)">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <style>
 
@@ -42,7 +47,7 @@
             padding: 0 40px;
             height: 70px;
             /* Nova cor laranja */
-            background: #ef8920;
+            background: #e69c63;
             backdrop-filter: none;
             -webkit-backdrop-filter: none;
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
@@ -55,7 +60,7 @@
 
         /* Fica mais escura ao rolar */
         .navbar-cs.scrolled {
-            background: #ef8920;
+            background: #e69c63;
         }
 
         .navbar-cs-links {
@@ -127,7 +132,7 @@
                 display: flex !important; flex-direction: column; width: 100%;
                 position: fixed; top: 0; left: 0; z-index: 9999999;
                 /* Aplicando o Laranja */
-                background: #ef8920 !important;
+                background: #e69c63 !important;
                 backdrop-filter: none; -webkit-backdrop-filter: blur(15px);
                 border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
             }
@@ -138,13 +143,21 @@
             .mob-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: 'Teko', sans-serif; font-size: 22px; color: #ffffff !important; text-transform: uppercase; letter-spacing: 2px; }
             .mob-logo img { height: 50px; width: auto; }
             
+            /* Força qualquer texto, span ou div dentro da logo mobile a ser branco */
+            .mob-logo,
+            .mob-logo span, 
+            .mob-logo p, 
+            .mob-logo div {
+                color: #ffffff !important;
+            }
+            
             .mob-btn { width: 30px; height: 22px; display: flex; flex-direction: column; justify-content: space-between; background: none; border: none; padding: 0; cursor: pointer; }
             
             /* Forçando as linhas do menu hamburguer para branco */
             .mob-btn span { display: block; width: 100%; height: 3px; background: #ffffff !important; border-radius: 4px; transition: 0.3s; }
             
             /* Aplicando o laranja no fundo do menu aberto */
-            .mob-links { background: #ef8920 !important; width: 100%; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; border-top: 1px solid rgba(255,255,255,0.15); }
+            .mob-links { background: #e69c63 !important; width: 100%; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; border-top: 1px solid rgba(255,255,255,0.15); }
             .mob-links.open { max-height: 100vh; overflow-y: auto; }
             
             /* Forçando os links do menu para branco no mobile */
@@ -565,10 +578,12 @@
             color: #ffffff !important;
         }
 
-        /* Bloqueia o vazamento de cor no topo do Safari */
         html, body {
-            background-color: #000000; /* Mude para a cor principal do fundo do seu site (preto, branco, etc) */
-            overscroll-behavior-y: none; /* Impede aquele "pulo" elástico da tela que revela a cor por baixo */
+            /* Mude esse #ffffff para a cor principal do fundo do seu site */
+            background-color: #ffffff !important; 
+            
+            /* Evita que o usuário puxe a tela além do limite e revele cores escondidas */
+            overscroll-behavior-y: none; 
         }
     </style>
 </head>
