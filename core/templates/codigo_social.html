@@ -41,10 +41,9 @@
             padding: 0 40px;
             height: 70px;
             /* Cor sólida que combina com o fundo azul/roxo do hero */
-            background: rgba(80, 70, 180, 0.55);
+            background: black;
             backdrop-filter: none;
             -webkit-backdrop-filter: none;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             transform: translateY(0);
             transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1),
                         background 0.3s ease;
@@ -66,7 +65,7 @@
         .navbar-cs-links.right { justify-content: flex-end; }
 
         .navbar-cs-links a {
-            color: rgba(255,255,255,0.85);
+            color: #111;
             text-decoration: none;
             font-family: 'Teko', sans-serif !important;
             font-size: 22px !important;
@@ -455,7 +454,7 @@
 
         /* Footer */
         .cs-footer {
-            background: rgba(0,0,0,0.3);
+            background: #000000 !important;
             text-align: center;
             padding: 40px 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
@@ -463,7 +462,7 @@
 
         .cs-footer p {
             font-size: 15px !important;
-            color: rgba(255,255,255,0.65);
+            color: rgba(255,255,255,0.7);
             margin-bottom: 16px;
         }
 
@@ -474,10 +473,78 @@
             .stats-grid { padding: 0 20px 40px; }
             .codigo-social-hero h1 { font-size: 56px !important; }
         }
+
+        body {
+            color: #111; /* cor base de texto */
+        }
+        
+        /* títulos principais */
+        h1, h2, h3 {
+            color: #111 !important;
+        }
+        
+        /* textos gerais */
+        p, span, li, a {
+            color: #222 !important;
+        }
+
+        .intro-block h2,
+        .codigoSocialCarousel-intro h2,
+        .contribuicao-columns h2 {
+            color: #111 !important;
+        }
+
+        .intro-block p,
+        .codigoSocialCarousel-intro p,
+        .contribuicao-columns p {
+            color: #444 !important;
+        }
+
+        .card {
+            background: #ffffff !important;
+            color: #111 !important;
+            border: 1px solid #ddd !important;
+        }
+        
+        .card p {
+            color: #444 !important;
+        }
+        
+        .card .btn {
+            color: #111 !important;
+            border-color: #111;
+        }
+        
+        .card .btn:hover {
+            background: #111;
+            color: #fff !important;
+        }
+
+        .stat-card {
+            background: #f5f5ff !important;
+        }
+        
+        .stat-value {
+            color: #111 !important;
+        }
+        
+        .stat-label {
+            color: #555 !important;
+        }
+
+        .codigo-social-hero h1,
+        .codigo-social-hero p {
+            color: #ffffff !important;
+        }
+
+        .navbar-cs-links a,
+        .navbar-cs-center .brand {
+            color: #ffffff !important;
+        }
     </style>
 </head>
 
-<body style="background: #3b2fcc; min-height: 100vh;">
+<body style="background: #ffffff; min-height: 100vh;">
 
     <!-- MOBILE HEADER -->
     <div id="mobile-header-overlay">
@@ -671,10 +738,17 @@
             <div class="card">
                 <h3>{{ card.title }}</h3>
                 <p>{{ card.description }}</p>
-                {% if card.status == 'aberto' and card.form_link %}
-                    <a href="{{ card.form_link }}" target="_blank" class="btn">Inscreva-se</a>
-                {% else %}
-                    <p class="status">Próxima abertura: {{ card.opening_date }}</p>
+                {% if card %}
+                    <div class="card">
+                        <h3>{{ card.title }}</h3>
+                        <p>{{ card.description }}</p>
+
+                        {% if card.status == 'aberto' and card.form_link %}
+                            <a href="{{ card.form_link }}" class="btn">Inscreva-se</a>
+                        {% else %}
+                            <p class="status">Próxima abertura: {{ card.opening_date }}</p>
+                        {% endif %}
+                    </div>
                 {% endif %}
             </div>
             {% empty %}

@@ -28,6 +28,14 @@ def sobre_nos(request):
 def servicos(request):
     return render(request, 'servicos.html')
 
+def codigo_social(request):
+    # Agora puxa especificamente da tabela do Código Social
+    card = CodigoSocialCard.objects.filter(is_active=True).first()
+
+    return render(request, 'codigo_social.html', {
+        'card': card
+    })
+
 def news_detail(request, id):
     news = get_object_or_404(News, id=id)
     return render(request, 'news_detail.html', {'news': news})

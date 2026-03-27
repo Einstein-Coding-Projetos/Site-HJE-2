@@ -199,24 +199,32 @@
     <span class="section-eyebrow" data-aos="fade-up">Projetos em destaque</span>
     <h2 class="section-heading" data-aos="fade-up">O que estamos construindo</h2>
 
-    <div class="bento-grid">
+    <div class="proj-grid-uniforme">
         {% for project in projects|slice:":3" %}
-        <div class="bento-card {% if forloop.first %}destaque{% endif %}" data-aos="fade-up" data-aos-delay="{{ forloop.counter0 }}00">
-            {% if project.image %}<div class="bento-bg" style="background-image: url('{{ project.image.url }}');"></div>{% endif %}
-            <div class="bento-content">
+        <div class="proj-card" data-aos="fade-up" data-aos-delay="{{ forloop.counter0 }}00">
+            
+            {% if project.image %}
+            <div class="proj-card-img" style="background-image: url('{{ project.image.url }}');"></div>
+            {% else %}
+            <div class="proj-card-img"></div>
+            {% endif %}
+    
+            <div class="proj-card-body">
                 <h3>{{ project.title }}</h3>
-                <p>{% if forloop.first %}{{ project.summary|truncatechars:200 }}{% else %}{{ project.summary|truncatechars:80 }}{% endif %}</p>
-                <div style="display:flex;gap:14px;align-items:center;">
-                    <button class="btn-ler-mais"
-                        data-title="{{ project.title|escapejs }}"
-                        data-desc="{{ project.summary|escapejs }}"
-                        data-img="{% if project.image %}{{ project.image.url}}{% endif %}"
-                        data-link="{{ project.link|default:''|escapejs }}">
-                        Ver projeto →
+                <p>{{ project.summary|truncatechars:110 }}</p>
+    
+                <div class="proj-card-footer">
+                    <button class="btn-outline-proj"
+                        onclick="openModal('{{ project.title|escapejs }}', '{{ project.summary|escapejs }}', '{% if project.image %}{{ project.image.url }}{% endif %}', '{{ project.link|default:'' }}')">
+                        Saiba mais
                     </button>
-                    {% if project.link %}<a href="{{ project.link }}" target="_blank" class="btn-ext-link" title="Visitar site">↗</a>{% endif %}
+    
+                    {% if project.link %}
+                    <a href="{{ project.link }}" target="_blank" class="btn-ext-link">↗</a>
+                    {% endif %}
                 </div>
             </div>
+    
         </div>
         {% empty %}
         <p class="empty-state">Em breve, novos projetos serão anunciados aqui.</p>

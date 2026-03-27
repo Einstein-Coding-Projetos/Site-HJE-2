@@ -2717,3 +2717,15 @@ footer h4 {
     display: block !important;  
 }
 
+.bento-card {
+    position: relative;
+}
+
+.bento-bg {
+    z-index: 0;
+}
+
+.bento-content {
+    position: relative;
+    z-index: 10;
+}
