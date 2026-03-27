@@ -2151,7 +2151,7 @@ html body section.noticias-header p {
         position: relative;
         z-index: 20;
     }
-    
+
 /* =========================
    Eventos - Home
    ========================= */
@@ -2833,4 +2833,17 @@ footer h4 {
 .contato-sub {
     margin-top: 30px !important;  
     display: block !important;  
+}
+
+.bento-card {
+    position: relative;
+}
+
+.bento-bg {
+    z-index: 0;
+}
+
+.bento-content {
+    position: relative;
+    z-index: 10;
 }
