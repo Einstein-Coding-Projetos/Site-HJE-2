@@ -2845,3 +2845,24 @@ footer h4 {
         grid-row: auto;
     }
 }
+
+/* Força o card de destaque a distribuir o conteúdo verticalmente */
+.bento-grid .proj-card.destaque {
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-grid .proj-card.destaque .proj-card-body {
+    flex: 1; /* Faz o corpo (onde está o texto) esticar */
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-grid .proj-card.destaque p {
+    flex: 1; /* O parágrafo cresce para ocupar o espaço vazio */
+    font-size: 17px; /* Aumentamos um pouquinho a fonte apenas no destaque */
+    line-height: 1.6;
+    margin-bottom: 20px;
+    overflow: visible; /* Garante que o texto não seja cortado visualmente */
+}
