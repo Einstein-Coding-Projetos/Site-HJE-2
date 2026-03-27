@@ -2866,3 +2866,24 @@ footer h4 {
     margin-bottom: 20px;
     overflow: visible; /* Garante que o texto não seja cortado visualmente */
 }
+
+/* ============================================================
+   AJUSTE ESPECÍFICO PARA O CARD DE DESTAQUE DE PROJETOS NA HOME
+   ============================================================ */
+
+/* Alvo: A imagem dentro do card de destaque na grid da Home */
+.bento-grid .proj-card.destaque .proj-card-img {
+    /* Aumenta a altura da imagem (o padrão do proj-card é 175px) */
+    height: 300px; 
+    
+    /* Garante que a imagem cubra todo o espaço sem distorcer */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Ajuste responsivo: Volta ao tamanho normal em tablets e celulares */
+@media (max-width: 1024px) {
+    .bento-grid .proj-card.destaque .proj-card-img {
+        height: 175px; /* Altura padrão dos outros cards */
+    }
+}
