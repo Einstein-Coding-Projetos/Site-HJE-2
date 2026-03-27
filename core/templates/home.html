@@ -167,9 +167,9 @@
                         <h3>{{ project.title }}</h3>
                         <p>
                             {% if forloop.first %}
-                                {{ project.summary|truncatechars:180 }}
+                                {{ project.summary }}
                             {% else %}
-                                {{ project.summary|truncatechars:60 }}
+                                {{ project.summary|truncatechars:110 }}
                             {% endif %}
                         </p>
 
