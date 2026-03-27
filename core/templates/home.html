@@ -155,12 +155,12 @@
             
             <div class="proj-grid-uniforme">
                 {% for project in recent_projects %}
-                <div class="proj-card" data-aos="fade-up" data-aos-delay="{{ forloop.counter0 }}00">
+                <div class="bento-card proj-card" data-aos="fade-up" data-aos-delay="{{ forloop.counter0 }}00">
             
                     {% if project.image %}
-                    <div class="proj-card-img" style="background-image: url('{{ project.image.url }}');"></div>
+                        <div class="proj-card-img" style="background-image: url('{{ project.image.url }}');"></div>
                     {% else %}
-                    <div class="proj-card-img"></div>
+                        <div class="proj-card-img"></div>
                     {% endif %}
             
                     <div class="proj-card-body">
