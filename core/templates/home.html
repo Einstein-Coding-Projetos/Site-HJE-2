@@ -153,35 +153,36 @@
             <h2 data-aos="fade-in">O Que Desenvolvemos</h2>
             <p style="margin-bottom: 20px;"  data-aos="fade-left">Confira algumas das soluções que nossa equipe já colocou em prática.</p>
             
-            <div class="proj-grid-uniforme">
+            <div class="bento-grid">
                 {% for project in recent_projects %}
-                <div class="bento-card proj-card" data-aos="fade-up" data-aos-delay="{{ forloop.counter0 }}00">
+                <div class="bento-card {% if forloop.first %}destaque{% endif %}" data-aos="fade-up">
             
                     {% if project.image %}
-                        <div class="proj-card-img" style="background-image: url('{{ project.image.url }}');"></div>
-                    {% else %}
-                        <div class="proj-card-img"></div>
+                        <div class="bento-bg" style="background-image: url('{{ project.image.url }}');"></div>
                     {% endif %}
             
-                    <div class="proj-card-body">
+                    <div class="bento-content">
                         <h3>{{ project.title }}</h3>
-                        <p>{{ project.summary|truncatechars:110 }}</p>
-            
-                        <div class="proj-card-footer">
-                            <button class="btn-outline-proj"
-                                onclick="window.location.href='/projetos/'">
-                                Saiba mais
-                            </button>
-            
-                            {% if project.link %}
-                            <a href="{{ project.link }}" target="_blank" class="btn-ext-link">↗</a>
+                        <p>
+                            {% if forloop.first %}
+                                {{ project.summary|truncatechars:180 }}
+                            {% else %}
+                                {{ project.summary|truncatechars:60 }}
                             {% endif %}
-                        </div>
+                        </p>
+                        {% if project.link %}
+                            <a href="{{ project.link }}" target="_blank" class="btn-arrow" style="text-decoration: none;">
+                                Acessar Link →
+                            </a>
+                        {% else %}
+                            <a href="{% url 'projetos' %}" class="btn-arrow" style="text-decoration: none;">
+                                Ver Detalhes →
+                            </a>
+                        {% endif %}
                     </div>
-            
                 </div>
                 {% empty %}
-                <p>Nossa equipe está trabalhando em novidades incríveis.</p>
+                    <p data-aos="fade-in">Nossa equipe está trabalhando em novidades incríveis.</p>
                 {% endfor %}
             </div>
             

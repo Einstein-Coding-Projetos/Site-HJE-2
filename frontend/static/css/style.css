@@ -2716,11 +2716,3 @@ footer h4 {
     margin-top: 30px !important;  
     display: block !important;  
 }
-
-.bento-card.proj-card {
-    padding: 0;
-}
-
-.bento-card.proj-card .proj-card-body {
-    height: 100%;
-}
