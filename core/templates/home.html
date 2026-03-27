@@ -155,13 +155,15 @@
             
             <div class="bento-grid">
                 {% for project in recent_projects %}
-                <div class="bento-card {% if forloop.first %}destaque{% endif %}" data-aos="fade-up">
+                <div class="proj-card {% if forloop.first %}destaque{% endif %}" data-aos="fade-up">
             
                     {% if project.image %}
-                        <div class="bento-bg" style="background-image: url('{{ project.image.url }}');"></div>
+                        <div class="proj-card-img" style="background-image: url('{{ project.image.url }}');"></div>
+                    {% else %}
+                        <div class="proj-card-img"></div>
                     {% endif %}
             
-                    <div class="bento-content">
+                    <div class="proj-card-body">
                         <h3>{{ project.title }}</h3>
                         <p>
                             {% if forloop.first %}
@@ -170,15 +172,19 @@
                                 {{ project.summary|truncatechars:60 }}
                             {% endif %}
                         </p>
-                        {% if project.link %}
-                            <a href="{{ project.link }}" target="_blank" class="btn-arrow" style="text-decoration: none;">
-                                Acessar Link →
-                            </a>
-                        {% else %}
-                            <a href="{% url 'projetos' %}" class="btn-arrow" style="text-decoration: none;">
-                                Saiba mais em Projetos →
-                            </a>
-                        {% endif %}
+
+                        <div class="proj-card-footer">
+                            {% if project.link %}
+                                <a href="{{ project.link }}" target="_blank" class="btn-outline-proj" style="text-decoration: none;">
+                                    Acessar Link
+                                </a>
+                                <a href="{{ project.link }}" target="_blank" class="btn-ext-link">↗</a>
+                            {% else %}
+                                <a href="{% url 'projetos' %}" class="btn-outline-proj" style="text-decoration: none;">
+                                    Saiba mais
+                                </a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
                 {% empty %}
