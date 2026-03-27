@@ -60,9 +60,6 @@ def noticias(request):
         )
     return render(request, 'noticias.html', {'noticias': noticias_list})
 
-def gestao(request):
-    return render(request, "gestao.html")
-
 def codigo_loja(request):
     products = Product.objects.filter(is_active=True)
     return render(request, 'loja.html', {
@@ -80,5 +77,10 @@ def gestao(request):
     return render(request, 'gestao.html', context);
 
 def codigo_social(request):
+    # Agora puxa os cards ativos e as fotos
+    cards = CodigoSocialCard.objects.filter(is_active=True)
     fotos = CodigoSocialFoto.objects.all()
-    return render(request, "codigo_social.html", {"fotos": fotos})
+    return render(request, "codigo_social.html", {
+        "cards": cards,
+        "fotos": fotos
+    })
