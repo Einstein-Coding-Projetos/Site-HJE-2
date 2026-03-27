@@ -124,19 +124,19 @@
             #mobile-header-overlay {
                 display: flex !important; flex-direction: column; width: 100%;
                 position: fixed; top: 0; left: 0; z-index: 9999999;
-                background: rgba(60, 50, 160, 0.95) !important;
-                backdrop-filter: blur(15px) !important; -webkit-backdrop-filter: blur(15px);
-                border-bottom: 1px solid rgba(255,255,255,0.1);
+                background: rgba(80, 70, 180, 0.55) !important;
+                backdrop-filter: none; -webkit-backdrop-filter: blur(15px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
             }
             #mobile-spacer { display: block; }
             .mob-top { display: flex; justify-content: space-between; align-items: center; padding: 10px 25px; height: 80px; }
-            .mob-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: 'Teko', sans-serif; font-size: 22px; color: #fff; text-transform: uppercase; letter-spacing: 2px; }
+            .mob-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: 'Teko', sans-serif; font-size: 22px; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; }
             .mob-logo img { height: 50px; width: auto; }
             .mob-btn { width: 30px; height: 22px; display: flex; flex-direction: column; justify-content: space-between; background: none; border: none; padding: 0; cursor: pointer; }
-            .mob-btn span { display: block; width: 100%; height: 3px; background: #fff; border-radius: 4px; transition: 0.3s; }
-            .mob-links { background: rgba(50, 40, 140, 0.98); width: 100%; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; border-top: 1px solid rgba(255,255,255,0.1); }
+            .mob-btn span { display: block; width: 100%; height: 3px; background: #ffffff; border-radius: 4px; transition: 0.3s; }
+            .mob-links { background: rgba(80, 70, 180, 0.55) !important; width: 100%; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; border-top: 1px solid rgba(255,255,255,0.15); }
             .mob-links.open { max-height: 100vh; overflow-y: auto; }
-            .mob-links a { padding: 18px 0; text-align: center; color: #fff; display: block; font-family: 'Teko', sans-serif !important; font-size: 22px; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); text-transform: uppercase; letter-spacing: 2px; }
+            .mob-links a { padding: 18px 0; text-align: center; color: #ffffff; display: block; font-family: 'Teko', sans-serif !important; font-size: 22px; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.15); text-transform: uppercase; letter-spacing: 2px; }
             .mob-btn.active span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
             .mob-btn.active span:nth-child(2) { opacity: 0; }
             .mob-btn.active span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
