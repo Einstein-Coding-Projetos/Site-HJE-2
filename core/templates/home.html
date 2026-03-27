@@ -170,17 +170,29 @@
                                 {{ project.summary|truncatechars:60 }}
                             {% endif %}
                         </p>
-                        {% if project.link %}
-                            <a href="{{ project.link }}" target="_blank" class="btn-arrow" style="text-decoration: none;">
-                                Acessar Link →
-                            </a>
-                        {% else %}
-                            <a href="{% url 'projetos' %}" class="btn-arrow" style="text-decoration: none;">
+                    
+                        <div class="bento-buttons">
+    
+                            <!-- BOTÃO VER DETALHES (SEMPRE EXISTE) -->
+                            <button class="btn-arrow"
+                                onclick="openModal(
+                                    '{{ project.title|escapejs }}',
+                                    '{{ project.summary|escapejs }}',
+                                    '{% if project.image %}{{ project.image.url }}{% endif %}',
+                                    '{{ project.link|default:'' }}'
+                                )">
                                 Ver Detalhes →
-                            </a>
-                        {% endif %}
+                            </button>
+                        
+                            <!-- BOTÃO LINK (SE EXISTIR) -->
+                            {% if project.link %}
+                                <a href="{{ project.link }}" target="_blank" class="btn-arrow">
+                                    Acessar Link ↗
+                                </a>
+                            {% endif %}
+                        
+                        </div>
                     </div>
-                </div>
                 {% empty %}
                     <p data-aos="fade-in">Nossa equipe está trabalhando em novidades incríveis.</p>
                 {% endfor %}
@@ -362,6 +374,19 @@
             <p>Email: einstein.coding@outlook.com</p>
     </footer>    
 
+    <!-- Modal -->
+    <div id="projectModal" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-glass">
+            <span class="close-btn" onclick="closeModal(event)">&times;</span>
+            <div class="modal-header" id="modalImage"></div>
+            <div class="modal-body">
+                <h2 id="modalTitle"></h2>
+                <p id="modalDescription"></p>
+                <a id="modalLink" href="#" target="_blank" class="modal-cta">Visitar Projeto ↗</a>
+            </div>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
@@ -372,5 +397,41 @@
         });
     </script>
 
+    <script>
+        function openModal(title, description, imageUrl, link) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDescription').innerText = description;
+        
+            const imgContainer = document.getElementById('modalImage');
+            if (imageUrl) {
+                imgContainer.style.backgroundImage = "url('" + imageUrl + "')";
+                imgContainer.style.display = 'block';
+            } else {
+                imgContainer.style.display = 'none';
+            }
+        
+            const btnLink = document.getElementById('modalLink');
+            if (link) {
+                btnLink.href = link;
+                btnLink.style.display = 'inline-block';
+            } else {
+                btnLink.style.display = 'none';
+            }
+        
+            document.getElementById('projectModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(event) {
+            if (
+                event.target.classList.contains('modal-overlay') ||
+                event.target.classList.contains('close-btn')
+            ) {
+                document.getElementById('projectModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+        </script>
+        
 </body>
 </html>
