@@ -41,9 +41,10 @@
             padding: 0 40px;
             height: 70px;
             /* Cor sólida que combina com o fundo azul/roxo do hero */
-            background: #ef8920;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
+            background: rgba(10, 10, 30, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
             transform: translateY(0);
             transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1),
                         background 0.3s ease;
@@ -51,6 +52,11 @@
 
         .navbar-cs.hide { transform: translateY(-100%); }
 
+        /* Fica mais escura ao rolar */
+        .navbar-cs.scrolled {
+            background: rgba(20, 20, 60, 0.95);
+            border-bottom: 1px solid rgba(120,140,255,0.25);
+        }
 
         .navbar-cs-links {
             display: flex;
@@ -61,7 +67,7 @@
         .navbar-cs-links.right { justify-content: flex-end; }
 
         .navbar-cs-links a {
-            color: #111;
+            color: rgba(255,255,255,0.75);
             text-decoration: none;
             font-family: 'Teko', sans-serif !important;
             font-size: 22px !important;
@@ -79,11 +85,11 @@
             position: absolute;
             bottom: 0; left: 0;
             width: 0; height: 2px;
-            background: #636ce6;
+            background: linear-gradient(90deg, #6ab0ff, #636ce6);
             border-radius: 2px;
             transition: width 0.28s ease;
         }
-        .navbar-cs-links a:hover { color: #ffffff; }
+        .navbar-cs-links a:hover {color: #ffffff;}
         .navbar-cs-links a:hover::after { width: 100%; }
 
         /* Centro — texto "CÓDIGO SOCIAL" */
@@ -119,8 +125,8 @@
             #mobile-header-overlay {
                 display: flex !important; flex-direction: column; width: 100%;
                 position: fixed; top: 0; left: 0; z-index: 9999999;
-                background: #ef8920 !important;
-                backdrop-filter: blur(15px) !important; -webkit-backdrop-filter: blur(15px);
+                background: rgba(15, 15, 50, 0.9) !important;
+                backdrop-filter: blur(16px) !important;
                 border-bottom: 1px solid rgba(255,255,255,0.1);
             }
             #mobile-spacer { display: block; }
@@ -129,7 +135,7 @@
             .mob-logo img { height: 50px; width: auto; }
             .mob-btn { width: 30px; height: 22px; display: flex; flex-direction: column; justify-content: space-between; background: none; border: none; padding: 0; cursor: pointer; }
             .mob-btn span { display: block; width: 100%; height: 3px; background: #fff; border-radius: 4px; transition: 0.3s; }
-            .mob-links { background: rgba(50, 40, 140, 0.98); width: 100%; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; border-top: 1px solid rgba(255,255,255,0.1); }
+            .mob-links { background: rgba(15, 15, 50, 0.98); width: 100%; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; border-top: 1px solid rgba(255,255,255,0.1); }
             .mob-links.open { max-height: 100vh; overflow-y: auto; }
             .mob-links a { padding: 18px 0; text-align: center; color: #fff; display: block; font-family: 'Teko', sans-serif !important; font-size: 22px; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); text-transform: uppercase; letter-spacing: 2px; }
             .mob-btn.active span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
@@ -511,13 +517,13 @@
         }
         
         .card .btn {
-            background: #636ce6 !important;
+            background: #5a3cff !important;
             color: #ffffff !important;
             border: none !important;
         }
         
         .card .btn:hover {
-            background: #4b55e2 !important;
+            background: #3b2fcc !important;
             color: #ffffff !important;
         }
 
