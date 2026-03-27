@@ -733,26 +733,23 @@
             <h2>Contribuição</h2>
             <p>Seja um professor! Exclusivo para alunos da FICSAE. Link de inscrição aberto somente durante os períodos de seleção.</p>
         </div>
+    
         <div class="cards-grid" style="max-width: 900px; margin: 0 auto;">
             {% for card in cards %}
             <div class="card">
                 <h3>{{ card.title }}</h3>
                 <p>{{ card.description }}</p>
-                {% if card %}
-                    <div class="card">
-                        <h3>{{ card.title }}</h3>
-                        <p>{{ card.description }}</p>
-
-                        {% if card.status == 'aberto' and card.form_link %}
-                            <a href="{{ card.form_link }}" class="btn">Inscreva-se</a>
-                        {% else %}
-                            <p class="status">Próxima abertura: {{ card.opening_date }}</p>
-                        {% endif %}
-                    </div>
+    
+                {% if card.status == 'aberto' and card.form_link %}
+                    <a href="{{ card.form_link }}" class="btn">Inscreva-se</a>
+                {% else %}
+                    <p class="status">Próxima abertura: {{ card.opening_date }}</p>
                 {% endif %}
             </div>
             {% empty %}
-            <p style="opacity:0.7; grid-column: 1/-1; text-align:center;">Nenhum processo seletivo disponível no momento.</p>
+            <p style="opacity:0.7; grid-column: 1/-1; text-align:center;">
+                Nenhum processo seletivo disponível no momento.
+            </p>
             {% endfor %}
         </div>
     </section>
