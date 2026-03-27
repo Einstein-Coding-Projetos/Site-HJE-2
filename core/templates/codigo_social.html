@@ -742,10 +742,12 @@
             <div class="card">
                 <h3>{{ card.title }}</h3>
                 <p>{{ card.description }}</p>
-                {% if card.status == 'aberto' and card.form_link %}
-                    <a href="{{ card.form_link }}" target="_blank" class="btn">Inscreva-se</a>
-                {% else %}
-                    <p class="status">Próxima abertura: {{ card.opening_date }}</p>
+                {% if card.is_active %}
+                    {% if card.status == 'aberto' and card.form_link %}
+                        <a href="{{ card.form_link }}" class="btn">Inscreva-se</a>
+                    {% else %}
+                        <p class="status">Próxima abertura: {{ card.opening_date }}</p>
+                    {% endif %}
                 {% endif %}
             </div>
             {% empty %}

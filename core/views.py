@@ -30,7 +30,7 @@ def servicos(request):
 
 def codigo_social(request):
     # Agora puxa especificamente da tabela do Código Social
-    cards = CodigoSocialCard.objects.filter(is_active=True)
+    cards = CodigoSocialCard.objects.all()
     return render(request, 'codigo_social.html', {
         'cards': cards
     })
