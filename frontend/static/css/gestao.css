@@ -62,8 +62,8 @@
 .org-chart {
   position: relative;
   margin: 1px auto 0;
-  width: min(1700px, 100%);
-  aspect-ratio: 1700 / 900;
+  width: min(1600px, 100%);
+  aspect-ratio: 1600 / 900;
   overflow: visible;
 }
 
