@@ -275,7 +275,10 @@
 ========================= */
 .carousel-item { text-align: center; }
 
-.carousel-item img { width: auto !important; }
+.carousel-item img {
+  width: 100%;
+  height: auto;
+}
 
 #teamCarousel .carousel-control-prev { left: -60px; }
 #teamCarousel .carousel-control-next { right: -60px; }
@@ -300,14 +303,6 @@
   text-align: center;
   min-height: 260px;         /* mantém altura consistente */
   padding: 20px;
-}
-
-.team-photo{
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 12px;
 }
 
 .stats-grid {
@@ -698,4 +693,25 @@
 .team-member img:hover {
   transform: scale(1.1);
   transition: 0.3s;
+}
+
+/* ===== FIX DEFINITIVO FOTOS MEMBROS ===== */
+.team-photo {
+  width: 140px !important;
+  height: 140px !important;
+
+  border-radius: 50% !important;
+
+  object-fit: cover !important;
+  object-position: center !important;
+
+  display: block;
+  margin: 0 auto;
+
+  aspect-ratio: 1 / 1; /* garante círculo perfeito */
+}
+
+/* remove interferência de regras antigas */
+.team-member img {
+  all: unset;
 }

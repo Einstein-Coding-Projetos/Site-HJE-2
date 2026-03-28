@@ -116,8 +116,6 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': os.getenv("CLOUDINARY_API_SECRET"),
 }
 
-print("CLOUDINARY:", os.getenv("CLOUDINARY_CLOUD_NAME"))
-
 if os.environ.get('DATABASE_URL'):
     DATABASES = {
         'default': dj_database_url.config(
@@ -133,16 +131,6 @@ else:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-    
-print("CLOUDINARY CONFIG:")
-print(os.getenv("CLOUDINARY_CLOUD_NAME"))
-print(os.getenv("CLOUDINARY_API_KEY"))
-print(os.getenv("CLOUDINARY_API_SECRET"))
-
-print("CONFIG CLOUDINARY:")
-print(cloudinary.config().cloud_name)
-print(cloudinary.config().api_key)
-print(cloudinary.config().api_secret)
 
 cloudinary.config(
     cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
@@ -150,5 +138,3 @@ cloudinary.config(
     api_secret=os.getenv("CLOUDINARY_API_SECRET"),
     secure=True
 )
-
-print("Cloud name:", cloudinary.config().cloud_name)
