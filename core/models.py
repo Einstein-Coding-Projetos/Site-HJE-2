@@ -177,30 +177,6 @@ class TeamMember(models.Model):
 
     def __str__(self):
         return self.name
-
-    def save(self, *args, **kwargs):
-
-        super().save(*args, **kwargs)
-        if self.photo:
-            img = Image.open(self.photo.path)
-            
-            # Corrige orientação baseada no EXIF
-            img = ImageOps.exif_transpose(img)
-
-            width, height = img.size
-
-            min_dim = min(width, height)
-
-            left = (width - min_dim) / 2
-            top = (height - min_dim) / 2
-            right = (width + min_dim) / 2
-            bottom = (height + min_dim) / 2
-
-            img = img.crop((left, top, right, bottom))
-
-            img = img.resize((200,200), Image.LANCZOS)
-
-            img.save(self.photo.path)
         
 class Eventos(models.Model):
     title = models.CharField("Título", max_length=200)
@@ -231,17 +207,3 @@ class CodigoSocialFoto(models.Model):
 
     def __str__(self):
         return self.legenda or "Foto Código Social"
-
-    def save(self, *args, **kwargs):
-
-        super().save(*args, **kwargs)
-
-        if self.foto:
-            img = Image.open(self.foto.path)
-
-            # corrige rotação automática (EXIF de celular)
-            img = ImageOps.exif_transpose(img)
-
-            img.thumbnail((1600,1600), Image.LANCZOS)
-
-            img.save(self.foto.path, quality=90)
