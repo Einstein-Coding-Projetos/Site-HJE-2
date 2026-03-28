@@ -160,7 +160,7 @@
 
 /* Defaults por pessoa (posições Desktop) */
 .p-presidente { --x: 50%; --y: 9%; }
-.p-vice { --x: 69%; --y: 27%; }
+.p-vice { --x: 67%; --y: 27%; }
 .p-dir1 { --x: 16%;  --y: 66%; }
 .p-dir2 { --x: 33%; --y: 66%; }
 .p-dir3 { --x: 50%; --y: 66%; }
@@ -679,4 +679,23 @@
     font-size: 20px !important;
     margin-top: 10px !important;
   }
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.team-member img {
+  transform: scale(1.05);
+}
+
+.team-member img:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
 }
