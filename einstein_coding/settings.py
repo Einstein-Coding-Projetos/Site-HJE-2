@@ -138,3 +138,17 @@ print("CLOUDINARY CONFIG:")
 print(os.getenv("CLOUDINARY_CLOUD_NAME"))
 print(os.getenv("CLOUDINARY_API_KEY"))
 print(os.getenv("CLOUDINARY_API_SECRET"))
+
+print("CONFIG CLOUDINARY:")
+print(cloudinary.config().cloud_name)
+print(cloudinary.config().api_key)
+print(cloudinary.config().api_secret)
+
+cloudinary.config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.getenv("CLOUDINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET"),
+    secure=True
+)
+
+print("Cloud name:", cloudinary.config().cloud_name)
