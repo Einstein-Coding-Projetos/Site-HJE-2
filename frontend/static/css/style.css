@@ -2887,3 +2887,22 @@ footer h4 {
         height: 175px; /* Altura padrão dos outros cards */
     }
 }
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .team-member img {
+    transform: scale(1.05);
+  }
+
+  .team-member img:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+  }
