@@ -51,14 +51,28 @@ def projetos(request):
     return render(request, 'projetos.html', {'projects': projects})
 
 def noticias(request):
-    noticias_list = News.objects.all().order_by('-created_at')
-    query = request.GET.get('q')
-    if query:
-        noticias_list = noticias_list.filter(
-            Q(title__icontains=query) |
-            Q(content__icontains=query)
-        )
-    return render(request, 'noticias.html', {'noticias': noticias_list})
+    def noticias(request):
+        noticias_list = News.objects.all()
+
+        query = request.GET.get('q')
+        if query:
+            noticias_list = noticias_list.filter(
+                Q(title__icontains=query) |
+                Q(content__icontains=query)
+            )
+
+        order = request.GET.get('order')
+
+        if order == 'recentes':
+            noticias_list = noticias_list.order_by('-created_at')
+
+        elif order == 'antigas':
+            noticias_list = noticias_list.order_by('created_at')
+
+        else:
+            noticias_list = noticias_list.order_by('-created_at')
+
+        return render(request, 'noticias.html', {'noticias': noticias_list})
 
 def codigo_loja(request):
     products = Product.objects.filter(is_active=True)
