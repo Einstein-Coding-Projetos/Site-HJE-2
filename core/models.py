@@ -2,7 +2,7 @@ from django.db import models
 from PIL import Image, ImageOps
 
 class News(models.Model):
-    title = models.CharField("Título", max_length=200)
+    title = models.CharField("Título", max_length=201)
     summary = models.TextField("Resumo", max_length=500)
     content = models.TextField("Conteúdo completo")
     image = models.ImageField("Imagem", upload_to='news/', blank=True, null=True)
