@@ -749,6 +749,10 @@
                             <p class="status">Próxima abertura: {{ card.opening_date }}</p>
                         {% endif %}
                     </div>
+                {% if card.status == 'aberto' and card.form_link %}
+                    <a href="{{ card.form_link }}" class="btn">Inscreva-se</a>
+                {% else %}
+                    <p class="status">Próxima abertura: {{ card.opening_date }}</p>
                 {% endif %}
             </div>
             {% empty %}
