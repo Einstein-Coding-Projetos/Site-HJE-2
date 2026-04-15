@@ -121,7 +121,7 @@
         <div class="hero-content">
             <img src="{% static 'imgs/logoHJEclaro.png' %}" alt="Logo HJE" class="hero-logo" data-aos="fade-in">
             <h1 data-aos="fade-up" data-aos-delay="200">HealthTech Júnior<br>Einstein</h1>
-            <p data-aos="fade-up" data-aos-delay="400">Onde o código encontra o cuidado</p>
+            <p data-aos="fade-up" data-aos-delay="400">Onde tecnologia e saúde se encontram</p>
         </div>
         
         <div class="scroll-indicator">
@@ -136,11 +136,11 @@
         <div class="home-section">
             <h2 data-aos="fade-in">Quem Somos</h2>
             <p class="intro-text" data-aos="fade-up" data-aos-delay="100">
-                Somos a primeira Empresa Júnior de Engenharia Biomédica focada exclusivamente em desenvolvimento de software e soluções digitais.
-                Nascemos para preencher uma lacuna no mercado, unindo a expertise clínica com a programação de alto nível.
+                Somos a primeira entidade da FICSAE voltada a soluções digitais para a saúde, com foco estratégico em software e dados, onde a tecnologia encontra o seu propósito.
+                Nossa missão é integrar alunos de diversas áreas em um ambiente multidisciplinar, desenvolvendo habilidades extracurriculares e o networking necessário para conectá-los ao mercado.
             </p>
             <p class="intro-text" data-aos="fade-up" data-aos-delay="200">
-                Seja você um estudante buscando evolução técnica ou um parceiro buscando inovação, a HJE é o lugar onde a tecnologia encontra o propósito.
+                Atuamos com a visão de nos tornarmos a empresa júnior de referência em inovação tecnológica na área da saúde.
             </p>
             <div style="text-align: center; margin-top: 30px;" data-aos="fade-up" data-aos-delay="300">
                 <a href="/sobre-nos/" class="btn-corporate">Conheça nossa História</a>
@@ -155,30 +155,36 @@
             
             <div class="bento-grid">
                 {% for project in recent_projects %}
-                <div class="bento-card {% if forloop.first %}destaque{% endif %}" data-aos="fade-up">
+                <div class="proj-card {% if forloop.first %}destaque{% endif %}" data-aos="fade-up">
             
                     {% if project.image %}
-                        <div class="bento-bg" style="background-image: url('{{ project.image.url }}');"></div>
+                        <div class="proj-card-img" style="background-image: url('{{ project.image.url }}');"></div>
+                    {% else %}
+                        <div class="proj-card-img"></div>
                     {% endif %}
             
-                    <div class="bento-content">
+                    <div class="proj-card-body">
                         <h3>{{ project.title }}</h3>
                         <p>
                             {% if forloop.first %}
-                                {{ project.summary|truncatechars:180 }}
+                                {{ project.summary|linebreaksbr }}
                             {% else %}
-                                {{ project.summary|truncatechars:60 }}
+                                {{ project.summary|truncatechars:110 }}
                             {% endif %}
                         </p>
-                        {% if project.link %}
-                            <a href="{{ project.link }}" target="_blank" class="btn-arrow" style="text-decoration: none;">
-                                Acessar Link →
-                            </a>
-                        {% else %}
-                            <a href="{% url 'projetos' %}" class="btn-arrow" style="text-decoration: none;">
-                                Ver Detalhes →
-                            </a>
-                        {% endif %}
+
+                        <div class="proj-card-footer">
+                            {% if project.link %}
+                                <a href="{{ project.link }}" target="_blank" class="btn-outline-proj" style="text-decoration: none;">
+                                    Acessar Link
+                                </a>
+                                <a href="{{ project.link }}" target="_blank" class="btn-ext-link">↗</a>
+                            {% else %}
+                                <a href="{% url 'projetos' %}" class="btn-outline-proj" style="text-decoration: none;">
+                                    Saiba mais
+                                </a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
                 {% empty %}
@@ -198,8 +204,13 @@
                 <div data-aos="fade-right">
                     <h2 style="text-align: left;">Nosso Impacto Social</h2>
                     <p class="intro-text" style="text-align: left; margin-left: 0;">
-                        Não somos apenas código. Através do <strong>Código Social</strong>, levamos o ensino de programação para jovens em vulnerabilidade, 
-                        acreditando que a tecnologia é a maior ferramenta de ascensão social do século XXI.
+                        Braço voluntário da HJE, o <strong>Código Social</strong> transforma expertise técnica em impacto social concreto.
+                    </p>
+                    <p class="intro-text" style="text-align: left; margin-left: 0;">
+                        Nossa missão vai além de ensinar código: compartilhamos vivências reais com jovens visionários, tornando a tecnologia uma ferramenta de ascensão.
+                    </p>
+                    <p class="intro-text" style="text-align: left; margin-left: 0;">
+                        Com o apoio de nossos professores voluntários, conectamos o que praticamos no nosso dia a dia com quem está iniciando sua trajetória profissional.
                     </p>
                     <div style="margin-top: 30px;">
                         <a href="/codigo-social/" class="btn-corporate">Conheça o Código Social</a>

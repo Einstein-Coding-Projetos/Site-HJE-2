@@ -2729,3 +2729,161 @@ footer h4 {
     position: relative;
     z-index: 10;
 }
+
+/* =========================
+   DESIGN DE CARD DE PROJETOS (PROJ-CARD GLOBAIS)
+========================= */
+.proj-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.proj-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 18px 40px rgba(65,105,225,0.2);
+    border-color: rgba(65,105,225,0.35);
+}
+
+.proj-card-img {
+    height: 175px;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(65,105,225,0.15);
+    position: relative;
+}
+
+.proj-card-img::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(15,20,50,0.7), transparent);
+}
+
+.proj-card-body {
+    padding: 22px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.proj-card-body h3 {
+    font-family: 'Teko', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    color: #fff;
+    line-height: 1.15;
+}
+
+.proj-card-body p {
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.82;
+    flex: 1;
+    margin-bottom: 18px;
+}
+
+.proj-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-outline-proj {
+    background: transparent;
+    border: 1px solid rgba(65,105,225,0.5);
+    color: #8ab4ff;
+    padding: 7px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Teko', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: background 0.2s, color 0.2s;
+    text-align: center;
+}
+
+.btn-outline-proj:hover {
+    background: rgba(65,105,225,0.2);
+    color: #fff;
+}
+
+.btn-ext-link {
+    color: rgba(255,255,255,0.5);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.btn-ext-link:hover {
+    color: #fff;
+}
+
+/* Integração do proj-card no bento-grid da Home */
+.bento-grid .proj-card.destaque {
+    grid-column: 1 / 2;
+    grid-row: span 2;
+}
+
+.bento-grid .proj-card.destaque .proj-card-img {
+    height: 250px; /* Deixa a imagem um pouco mais alta para balancear o tamanho duplo do card de destaque */
+}
+
+@media (max-width: 1024px) {
+    .bento-grid .proj-card.destaque {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+
+/* Força o card de destaque a distribuir o conteúdo verticalmente */
+.bento-grid .proj-card.destaque {
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-grid .proj-card.destaque .proj-card-body {
+    flex: 1; /* Faz o corpo (onde está o texto) esticar */
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-grid .proj-card.destaque p {
+    flex: 1; /* O parágrafo cresce para ocupar o espaço vazio */
+    font-size: 17px; /* Aumentamos um pouquinho a fonte apenas no destaque */
+    line-height: 1.6;
+    margin-bottom: 20px;
+    overflow: visible; /* Garante que o texto não seja cortado visualmente */
+}
+
+/* ============================================================
+   AJUSTE ESPECÍFICO PARA O CARD DE DESTAQUE DE PROJETOS NA HOME
+   ============================================================ */
+
+/* Alvo: A imagem dentro do card de destaque na grid da Home */
+.bento-grid .proj-card.destaque .proj-card-img {
+    /* Aumenta a altura da imagem (o padrão do proj-card é 175px) */
+    height: 300px; 
+    
+    /* Garante que a imagem cubra todo o espaço sem distorcer */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Ajuste responsivo: Volta ao tamanho normal em tablets e celulares */
+@media (max-width: 1024px) {
+    .bento-grid .proj-card.destaque .proj-card-img {
+        height: 175px; /* Altura padrão dos outros cards */
+    }
+}

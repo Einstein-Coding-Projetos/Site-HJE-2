@@ -12,6 +12,12 @@
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'imgs/HJE2.ico' %}">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: dark)">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <style>
 
@@ -25,7 +31,7 @@
         }
 
         p, li, span, a, div {
-            font-size: 20px;
+            font-size: 28px;
         }
 
         /* ══════════════════════════════════════════
@@ -40,10 +46,11 @@
             align-items: center;
             padding: 0 40px;
             height: 70px;
-            /* Cor sólida que combina com o fundo azul/roxo do hero */
-            background: black;
+            /* Nova cor laranja */
+            background: #e69c63;
             backdrop-filter: none;
             -webkit-backdrop-filter: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             transform: translateY(0);
             transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1),
                         background 0.3s ease;
@@ -53,7 +60,7 @@
 
         /* Fica mais escura ao rolar */
         .navbar-cs.scrolled {
-            background: rgba(50, 40, 140, 0.85);
+            background: #e69c63;
         }
 
         .navbar-cs-links {
@@ -65,7 +72,7 @@
         .navbar-cs-links.right { justify-content: flex-end; }
 
         .navbar-cs-links a {
-            color: #111;
+            color: rgba(255,255,255,0.85);
             text-decoration: none;
             font-family: 'Teko', sans-serif !important;
             font-size: 22px !important;
@@ -120,22 +127,42 @@
         @media screen and (max-width: 950px) {
             .navbar-cs { display: none !important; }
             .navbar-cs-spacer { display: none; }
+            
             #mobile-header-overlay {
                 display: flex !important; flex-direction: column; width: 100%;
                 position: fixed; top: 0; left: 0; z-index: 9999999;
-                background: rgba(60, 50, 160, 0.95) !important;
-                backdrop-filter: blur(15px) !important; -webkit-backdrop-filter: blur(15px);
-                border-bottom: 1px solid rgba(255,255,255,0.1);
+                /* Aplicando o Laranja */
+                background: #e69c63 !important;
+                backdrop-filter: none; -webkit-backdrop-filter: blur(15px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
             }
             #mobile-spacer { display: block; }
             .mob-top { display: flex; justify-content: space-between; align-items: center; padding: 10px 25px; height: 80px; }
-            .mob-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: 'Teko', sans-serif; font-size: 22px; color: #fff; text-transform: uppercase; letter-spacing: 2px; }
+            
+            /* Forçando o texto da logo para branco no mobile */
+            .mob-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: 'Teko', sans-serif; font-size: 22px; color: #ffffff !important; text-transform: uppercase; letter-spacing: 2px; }
             .mob-logo img { height: 50px; width: auto; }
+            
+            /* Força qualquer texto, span ou div dentro da logo mobile a ser branco */
+            .mob-logo,
+            .mob-logo span, 
+            .mob-logo p, 
+            .mob-logo div {
+                color: #ffffff !important;
+            }
+            
             .mob-btn { width: 30px; height: 22px; display: flex; flex-direction: column; justify-content: space-between; background: none; border: none; padding: 0; cursor: pointer; }
-            .mob-btn span { display: block; width: 100%; height: 3px; background: #fff; border-radius: 4px; transition: 0.3s; }
-            .mob-links { background: rgba(50, 40, 140, 0.98); width: 100%; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; border-top: 1px solid rgba(255,255,255,0.1); }
+            
+            /* Forçando as linhas do menu hamburguer para branco */
+            .mob-btn span { display: block; width: 100%; height: 3px; background: #ffffff !important; border-radius: 4px; transition: 0.3s; }
+            
+            /* Aplicando o laranja no fundo do menu aberto */
+            .mob-links { background: #e69c63 !important; width: 100%; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; border-top: 1px solid rgba(255,255,255,0.15); }
             .mob-links.open { max-height: 100vh; overflow-y: auto; }
-            .mob-links a { padding: 18px 0; text-align: center; color: #fff; display: block; font-family: 'Teko', sans-serif !important; font-size: 22px; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); text-transform: uppercase; letter-spacing: 2px; }
+            
+            /* Forçando os links do menu para branco no mobile */
+            .mob-links a { padding: 18px 0; text-align: center; color: #ffffff !important; display: block; font-family: 'Teko', sans-serif !important; font-size: 22px; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.15); text-transform: uppercase; letter-spacing: 2px; }
+            
             .mob-btn.active span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
             .mob-btn.active span:nth-child(2) { opacity: 0; }
             .mob-btn.active span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
@@ -506,18 +533,27 @@
             border: 1px solid #ddd !important;
         }
         
+        .card h3 {
+            color: #111 !important;
+        }
+
         .card p {
-            color: #444 !important;
+            color: #333 !important;
         }
         
         .card .btn {
-            color: #111 !important;
-            border-color: #111;
+            background: #5a3cff !important;
+            color: #ffffff !important;
+            border: none !important;
         }
         
         .card .btn:hover {
-            background: #111;
-            color: #fff !important;
+            background: #3b2fcc !important;
+            color: #ffffff !important;
+        }
+
+        .card .status {
+            color: #ef8920 !important;
         }
 
         .stat-card {
@@ -540,6 +576,14 @@
         .navbar-cs-links a,
         .navbar-cs-center .brand {
             color: #ffffff !important;
+        }
+
+        html, body {
+            /* Mude esse #ffffff para a cor principal do fundo do seu site */
+            background-color: #ffffff !important; 
+            
+            /* Evita que o usuário puxe a tela além do limite e revele cores escondidas */
+            overscroll-behavior-y: none; 
         }
     </style>
 </head>
@@ -603,10 +647,7 @@
         <div class="intro-block" data-aos="fade-up">
             <h2>Sobre o Projeto</h2>
             <p>
-                O Código Social é o braço filantrópico da Healthtech Júnior Einstein.
-                Através dele, oferecemos aulas de programação para jovens em situação de
-                vulnerabilidade socioeconômica, criando oportunidades reais de inserção
-                no mercado de tecnologia.
+                O Código Social manifesta o compromisso da HJE com a responsabilidade social. Traduzimos o aprendizado da nossa trilha tecnológica em um projeto voluntário de capacitação, onde as aulas de programação servem como pontes para que jovens superem barreiras e conquistem seu espaço no setor de tecnologia.
             </p>
             <p>
                 Em parceria com o Ensino Einstein, alunos do ensino médio
@@ -727,28 +768,18 @@
         </div>
     </div>
 
-    <!-- COMO CONTRIBUIR -->
     <section id="como-contribuir" class="home-section" style="padding-top: 20px;">
         <div class="contribuicao-columns" data-aos="fade-up">
             <h2>Contribuição</h2>
             <p>Seja um professor! Exclusivo para alunos da FICSAE. Link de inscrição aberto somente durante os períodos de seleção.</p>
         </div>
+    
         <div class="cards-grid" style="max-width: 900px; margin: 0 auto;">
             {% for card in cards %}
             <div class="card">
                 <h3>{{ card.title }}</h3>
                 <p>{{ card.description }}</p>
-                {% if card %}
-                    <div class="card">
-                        <h3>{{ card.title }}</h3>
-                        <p>{{ card.description }}</p>
-
-                        {% if card.status == 'aberto' and card.form_link %}
-                            <a href="{{ card.form_link }}" class="btn">Inscreva-se</a>
-                        {% else %}
-                            <p class="status">Próxima abertura: {{ card.opening_date }}</p>
-                        {% endif %}
-                    </div>
+    
                 {% if card.status == 'aberto' and card.form_link %}
                     <a href="{{ card.form_link }}" class="btn">Inscreva-se</a>
                 {% else %}
@@ -756,7 +787,9 @@
                 {% endif %}
             </div>
             {% empty %}
-            <p style="opacity:0.7; grid-column: 1/-1; text-align:center;">Nenhum processo seletivo disponível no momento.</p>
+            <p style="opacity:0.7; grid-column: 1/-1; text-align:center;">
+                Nenhum processo seletivo disponível no momento.
+            </p>
             {% endfor %}
         </div>
     </section>
