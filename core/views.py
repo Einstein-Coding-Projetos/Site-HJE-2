@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import News, Project, CodigoSocialCard, HealthcareJuniorCard, Product, TeamMember, Eventos, CodigoSocialFoto
+from .models import News, Project, CodigoSocialCard, HealthcareJuniorCard, Product, TeamMember, Eventos, CodigoSocialFoto, PalestranteCoin, PatrocinadorCoin
 from django.db.models import Q
 
 def home(request):
@@ -28,14 +28,6 @@ def sobre_nos(request):
 def servicos(request):
     return render(request, 'servicos.html')
 
-def codigo_social(request):
-    # Agora puxa especificamente da tabela do Código Social
-    card = CodigoSocialCard.objects.filter(is_active=True).first()
-
-    return render(request, 'codigo_social.html', {
-        'card': card
-    })
-
 def news_detail(request, id):
     news = get_object_or_404(News, id=id)
     return render(request, 'news_detail.html', {'news': news})
@@ -51,28 +43,27 @@ def projetos(request):
     return render(request, 'projetos.html', {'projects': projects})
 
 def noticias(request):
-    def noticias(request):
-        noticias_list = News.objects.all()
+    noticias_list = News.objects.all()
 
-        query = request.GET.get('q')
-        if query:
-            noticias_list = noticias_list.filter(
-                Q(title__icontains=query) |
-                Q(content__icontains=query)
-            )
+    query = request.GET.get('q')
+    if query:
+        noticias_list = noticias_list.filter(
+            Q(title__icontains=query) |
+            Q(content__icontains=query)
+        )
 
-        order = request.GET.get('order')
+    order = request.GET.get('order')
 
-        if order == 'recentes':
-            noticias_list = noticias_list.order_by('-created_at')
+    if order == 'recentes':
+        noticias_list = noticias_list.order_by('-created_at')
 
-        elif order == 'antigas':
-            noticias_list = noticias_list.order_by('created_at')
+    elif order == 'antigas':
+        noticias_list = noticias_list.order_by('created_at')
 
-        else:
-            noticias_list = noticias_list.order_by('-created_at')
+    else:
+        noticias_list = noticias_list.order_by('-created_at')
 
-        return render(request, 'noticias.html', {'noticias': noticias_list})
+    return render(request, 'noticias.html', {'noticias': noticias_list})
 
 def codigo_loja(request):
     products = Product.objects.filter(is_active=True)
@@ -98,3 +89,18 @@ def codigo_social(request):
         "cards": cards,
         "fotos": fotos
     })
+
+def coin_view(request):
+    palestrantes = PalestranteCoin.objects.all().order_by('dia_apresentacao', 'ordem')
+    dias_evento = {}
+    for p in palestrantes:
+        if p.dia_apresentacao not in dias_evento:
+            dias_evento[p.dia_apresentacao] = []
+        dias_evento[p.dia_apresentacao].append(p)
+        
+    context = {
+        'dias_evento': dias_evento,
+        'patrocinadores': PatrocinadorCoin.objects.all().order_by('ordem'),
+        'tema_oficial': 'O FUTURO DA SAÚDE É COOPERATIVO E INTELIGENTE'
+    }
+    return render(request, 'coin.html', context)

@@ -8,6 +8,28 @@
 }
 
 /* =========================
+   FONTES OFICIAIS COIN
+========================= */
+@font-face {
+    font-family: 'Lotus Eater Sans';
+    src: url('/static/fonts/LotusEaterSans.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Sackers Gothic';
+    src: url('/static/fonts/SackersGothic.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Balgin';
+    src: url('/static/fonts/Balgin.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* =========================
    VARIÁVEIS CSS - DESIGN SYSTEM CORPORATIVO
 ========================= */
 :root {
@@ -24,6 +46,208 @@
     --glass-bg: rgba(13, 17, 23, 0.7);
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-bg-light: rgba(26, 39, 68, 0.05);
+
+    /* CORES COIN */
+    --coin-neon-purple: #4D28FF;
+    --coin-neon-blue: #4151FF;
+    --coin-dark-blue: #1D27B4;
+    --coin-base-blue: #2430DB;
+    --coin-yellow-highlight: #F6DF78;
+}
+
+/* =========================
+   ESTILOS EXCLUSIVOS DA PÁGINA COIN
+========================= */
+.coin-theme {
+    background-color: var(--coin-dark-blue);
+    background: linear-gradient(135deg, var(--coin-dark-blue) 0%, #151a66 100%);
+    min-height: 100vh;
+    color: white;
+    padding-bottom: 50px;
+    overflow-x: hidden;
+}
+.coin-cta-button {
+    background-color: var(--coin-yellow-highlight);
+    color: var(--coin-dark-blue);
+}
+.coin-title {
+    font-family: 'Lotus Eater Sans', sans-serif;
+}
+.coin-text {
+    font-family: 'Sackers Gothic', sans-serif;
+}
+
+.coin-hero {
+    padding: 180px 20px 100px;
+    text-align: center;
+    position: relative;
+}
+
+.coin-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, var(--coin-neon-purple) 0%, transparent 100%);
+    mix-blend-mode: overlay;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.coin-hero-content {
+    position: relative;
+    z-index: 10;
+}
+
+.coin-title-hero {
+    font-family: 'Lotus Eater Sans', 'Teko', 'Arial Black', sans-serif;
+    font-size: clamp(60px, 12vw, 120px);
+    color: var(--coin-yellow-highlight);
+    margin: 0;
+    text-shadow: 0 0 20px rgba(246, 223, 120, 0.4);
+    line-height: 1;
+    text-transform: none !important;
+    font-feature-settings: "liga" 0, "dlig" 0, "salt" 0, "ss01" 0;
+}
+
+.coin-subtitle {
+    font-family: 'Balgin', 'Rajdhani', 'Teko', sans-serif;
+    font-size: clamp(20px, 4vw, 30px);
+    margin-top: 20px;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+    color: white;
+}
+
+.coin-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.coin-section-title {
+    font-family: 'Lotus Eater Sans', 'Teko', 'Arial Black', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--coin-neon-blue);
+    text-shadow: 0 0 15px rgba(65, 81, 255, 0.4);
+    text-transform: none !important;
+    font-feature-settings: "liga" 0, "dlig" 0, "salt" 0, "ss01" 0;
+}
+
+.coin-speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.coin-speaker-card {
+    background: rgba(36, 48, 219, 0.2);
+    border: 1px solid rgba(65, 81, 255, 0.3);
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.coin-speaker-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(77, 40, 255, 0.3);
+    border-color: var(--coin-neon-blue);
+}
+
+.coin-speaker-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    border: 3px solid var(--coin-yellow-highlight);
+    box-shadow: 0 0 15px rgba(246, 223, 120, 0.3);
+}
+
+.coin-speaker-name {
+    font-family: 'Sackers Gothic', 'Rajdhani', 'Teko', sans-serif;
+    font-size: 24px;
+    color: white;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.coin-speaker-role {
+    font-size: 16px;
+    color: #b0b8ff;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.coin-cta {
+    display: inline-block;
+    padding: 16px 36px;
+    border-radius: 8px;
+    font-family: 'Balgin', 'Teko', sans-serif;
+    font-size: 26px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.coin-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(246, 223, 120, 0.4);
+}
+
+.patrocinadores-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 16px;
+}
+
+.patrocinador-logo {
+    max-width: 180px;
+    max-height: 90px;
+    object-fit: contain;
+    filter: brightness(0) invert(1) opacity(0.7);
+    transition: all 0.3s;
+}
+
+.patrocinador-logo:hover {
+    filter: brightness(1) invert(0) opacity(1);
+    transform: scale(1.05);
+}
+
+.coin-navbar {
+    background: rgba(29, 39, 180, 0.95) !important;
+    border-bottom: 1px solid rgba(65, 81, 255, 0.3) !important;
+}
+.coin-navbar .navbar-links a {
+    font-family: 'Balgin', 'Teko', sans-serif !important;
+}
+.coin-navbar .navbar-center .brand {
+    font-family: 'Lotus Eater Sans', 'Teko', sans-serif !important;
+    color: var(--coin-yellow-highlight) !important;
+    letter-spacing: 4px !important;
+    text-transform: none !important;
+    font-feature-settings: "liga" 0, "dlig" 0, "salt" 0, "ss01" 0 !important;
+}
+.coin-footer {
+    background-color: var(--coin-dark-blue) !important;
+    border-top: 1px solid rgba(65, 81, 255, 0.3) !important;
+    padding: 50px 20px !important;
+    text-align: center !important;
+}
+.coin-footer p, .coin-footer a {
+    font-family: 'Balgin', 'Rajdhani', sans-serif !important;
+    color: rgba(255,255,255,0.7) !important;
+    font-size: 16px !important;
 }
 
 /* =========================
@@ -35,7 +259,7 @@ html, body {
 }
 
 body {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Teko', sans-serif;
     font-weight: 500;
     font-size: 18px;
     color: white;
@@ -74,87 +298,6 @@ h1, h2, h3, h4, h5, h6 {
 .section-light {
     background-color: var(--color-white);
     color: var(--color-dark);
-}
-
-/* =========================
-   NAVBAR - FIXA NO TOPO
-========================= */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: rgba(13, 17, 23, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    padding: 10px 40px;
-    border-bottom: 1px solid var(--glass-border);
-}
-
-.navbar-links {
-    display: flex;
-    gap: 40px;
-}
-
-.navbar-links.left {
-    justify-content: flex-start;
-}
-
-.navbar-links.right {
-    justify-content: flex-end;
-}
-
-.navbar-links a {
-    color: rgba(255, 255, 255, 0.85);
-    text-decoration: none;
-    font-family: 'Teko', sans-serif !important;
-    font-size: 22px !important;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 400;
-    position: relative;
-    transition: color 0.3s ease !important;
-}
-
-.navbar-links a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 100%;
-    height: 2px;
-    background: var(--color-accent);
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
-}
-
-.navbar-links a:hover {
-    color: var(--color-white);
-}
-
-.navbar-links a:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-}
-
-.navbar-center {
-    text-align: center;
-}
-
-.navbar-center .brand {
-    color: white;
-    text-decoration: none;
-    font-family: 'Teko', sans-serif !important;
-    font-size: 28px !important;
-    line-height: 0.9;
-    letter-spacing: 3px;
-    font-weight: 600;
-    display: inline-block;
 }
 
 /* =========================
@@ -388,7 +531,7 @@ h1, h2, h3, h4, h5, h6 {
 .bento-grid{
     display: grid; 
     grid-template-columns: 1.5fr 1fr; 
-    grid-template-rows: 250px 250px; 
+    grid-auto-rows: minmax(220px, auto);
     gap: 20px; 
     margin-top: 40px;
 }
@@ -396,7 +539,6 @@ h1, h2, h3, h4, h5, h6 {
 .bento-card {
     position: relative;
     border-radius: 16px;
-    overflow: hidden;
     display: flex;
     align-items: flex-end;
     transition: all 0.4s ease;
@@ -404,7 +546,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .bento-card.destaque {
     grid-column: 1 / 2;
-    grid-row: 1 / 3;
+    grid-row: span 2;
 }
 
 .bento-bg {
@@ -446,8 +588,11 @@ h1, h2, h3, h4, h5, h6 {
 .bento-content {
     position: relative;
     z-index: 2;
-    padding: 28px;
+    padding: 40px 28px 28px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .bento-content h3 {
@@ -456,6 +601,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-white);
     margin-bottom: 8px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 12px;
 }
 
 .bento-content p {
@@ -463,6 +609,7 @@ h1, h2, h3, h4, h5, h6 {
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 12px;
     line-height: 1.5;
+    overflow: visible;
 }
 
 .btn-arrow {
@@ -484,10 +631,40 @@ h1, h2, h3, h4, h5, h6 {
 ========================= */
 .news-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+/* TABLET */
+@media (max-width: 1024px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .news-card {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .news-card img {
+        height: 180px;
+    }
+
+    .news-card h3 {
+        font-size: 26px;
+    }
+
+    .news-card p {
+        font-size: 16px;
+    }
 }
 
 .news-card {
@@ -629,60 +806,77 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* =========================
-   IMPACTO SOCIAL - STATS
+   IMPACTO SOCIAL - STATS (VERSÃO FINAL COM ANIMAÇÃO)
 ========================= */
 .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 24px;
-    margin-top: 40px;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+    gap: 20px !important;
+    margin-top: 40px !important;
 }
 
 .stat-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    padding: 28px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    transition: all 0.3s ease;
-}
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 16px !important;
+    padding: 20px !important;
+    
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 15px !important;
+    min-height: 100px !important;
 
-.stat-card:hover {
-    border-color: var(--color-accent);
-    transform: translateY(-3px);
+    /* RECOLOCANDO A ANIMAÇÃO DE TRANSIÇÃO */
+    transition: all 0.3s ease !important;
+    cursor: pointer;
 }
 
 .stat-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 12px;
-    background: rgba(59, 130, 246, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    min-height: 60px !important;
+    background: rgba(59, 130, 246, 0.2) !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important; 
+    transition: transform 0.3s ease !important;
 }
 
-.stat-icon img {
-    width: 28px;
-    height: 28px;
-    filter: brightness(0) invert(1);
-    opacity: 0.9;
+.stat-icon svg, .stat-icon img {
+    width: 30px !important;
+    height: 30px !important;
+    display: block !important;
+    /* Garante que imagens fiquem brancas como os SVGs */
+    filter: brightness(0) invert(1) !important; 
+}
+
+.stat-info {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    text-align: left !important;
 }
 
 .stat-value {
-    font-family: 'Teko', sans-serif;
-    font-size: 40px;
-    color: var(--color-white);
-    line-height: 1;
+    font-family: 'Teko', sans-serif !important;
+    font-size: 40px !important;
+    color: #ffffff !important;
+    line-height: 0.8 !important;
+    margin: 0 0 5px 0 !important;
 }
 
 .stat-label {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
 }
 
 /* =========================
@@ -693,12 +887,14 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     padding: 50px 20px;
     border-top: 1px solid var(--glass-border);
+    color: white !important;
 }
 
 .footer p {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 16px;
-    margin-bottom: 24px;
+    font-size: 16px !important;
+    margin-bottom: 20px !important;
+    font-family: 'Teko', sans-serif !important;
 }
 
 .social-links {
@@ -817,7 +1013,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
-    .navbar {
+    .navbar,
+    .navbar-cs,
+    .navbar-gestao,
+    .navbar-noticias,
+    .navbar-projetos,
+    .navbar-servicos,
+    .navbar-sobre {
         display: none;
     }
 
@@ -874,12 +1076,52 @@ h1, h2, h3, h4, h5, h6 {
     
     #mobile-spacer { display: block; }
 
-    .about, .home-section, .card, .news-card, .bento-card, .glass-card, section {
+    .about, .home-section, .card, .bento-card, .glass-card, section {
         margin-left: 15px !important; 
         margin-right: 15px !important;
         width: auto !important; 
         max-width: 100% !important; 
         box-sizing: border-box !important;
+    }
+
+    .news-card {
+        /* Resetamos as margens laterais fixas que estavam esmagando */
+        margin: 0 auto !important; 
+        width: 90% !important;   /* Ocupa a largura da tela com respiro */
+        max-width: 350px !important; 
+        display: block !important;
+    }
+
+    /* Faz o bloco de Impacto Social empilhar em vez de ficar lado a lado */
+    .impacto-container {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 40px !important;
+        text-align: center !important;
+    }
+
+    /* Centraliza o título e o texto do impacto social */
+    .impacto-container h2, 
+    .impacto-container .intro-text {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Ajusta a grid de estatísticas (+60 jovens, etc) */
+    .stats-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        gap: 20px !important;
+    }
+
+    /* Garante que os cards de números não fiquem gigantes */
+    .stat-card {
+        width: 100% !important;
+        max-width: 300px !important;
+        margin: 0 auto !important;
     }
 
     .mob-top { 
@@ -965,7 +1207,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Remove o fundo gradiente antigo e aplica o fundo escuro corporativo */
 .news-detail-page {
-    background: var(--color-dark, #0d1117);
+    background: var(--color-navy);
     min-height: 100vh;
     padding: 0;
 }
@@ -993,13 +1235,13 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: #ffffff;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     line-height: 1;
 }
 
 /* Data */
 .news-detail-date {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Teko', sans-serif;
     font-size: 16px;
     color: rgba(255, 255, 255, 0.45);
     letter-spacing: 1px;
@@ -1024,7 +1266,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Conteúdo do texto */
 .news-detail-content {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Teko', sans-serif;
     font-size: 20px;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.82);
@@ -1190,7 +1432,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .project-slide-content p {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Teko', sans-serif;
     font-size: 16px;
     color: rgba(255,255,255,0.7);
     line-height: 1.5;
@@ -1198,7 +1440,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .project-slide-content a {
-    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Teko', sans-serif;
     font-size: 14px;
     font-weight: 600;
     color: #3b6fe0;
@@ -1309,12 +1551,19 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 255, 255, 0.12); 
+    backdrop-filter: blur(10px); 
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .product-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+
+    border-color: rgba(65,105,225,0.6); 
 }
 
 .product-image {
@@ -1371,6 +1620,38 @@ h1, h2, h3, h4, h5, h6 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
+}
+
+/* TABLET */
+@media (max-width: 1024px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .news-card {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .news-card img {
+        height: 180px;
+    }
+
+    .news-card h3 {
+        font-size: 26px;
+    }
+
+    .news-card p {
+        font-size: 16px;
+    }
 }
 
 .breaking-news,
@@ -1438,8 +1719,8 @@ h1, h2, h3, h4, h5, h6 {
 .noticias-container {
     max-width: 1200px;
     margin: 40px auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+    display: flex;
+    justify-content: center;
     gap: 30px;
 }
 
@@ -1464,6 +1745,8 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
+    max-width: 800px;
 }
 
 .card-noticia {
@@ -1589,22 +1872,18 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.noticias-header h1 {
-    font-family: 'Teko', sans-serif;
-    font-size: 56px;          
-    letter-spacing: 2.5px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
+html body section.noticias-header h2 {
+    font-size: 30px !important;
+    margin-bottom: 8px !important;
 }
 
-.noticias-header p {
-    font-family: 'Teko', sans-serif;
-    font-size: 26px;          
-    letter-spacing: 1px;
-    opacity: 0.95;
-    margin-bottom: 30px;
+html body section.noticias-header p {
+    font-size: 18px !important;
+    line-height: 1.3 !important;
+    max-width: 700px !important;
+    margin: 0 auto 15px auto !important;
+    display: block !important;
 }
-
 
 /* FILTRO */
 .noticias-filtro {
@@ -1710,6 +1989,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .codigo-social-cards {
     padding: 0 60px 30px;
+    color: white !important
 }
 
 
@@ -1757,15 +2037,24 @@ h1, h2, h3, h4, h5, h6 {
 
 .card .btn {
     display: inline-block;
+    
     font-family: 'Teko', sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: lavender;
+
+    color: #636ce6;
     text-decoration: none;
+
     padding-bottom: 4px;
+
     border-bottom: 2px solid rgba(255,255,255,0.8);
     background: none;
+    border-radius: 0;
+
+    cursor: pointer;
+
+    transition: opacity 0.2s ease;
 }
 
 .card .btn:hover {
@@ -1773,7 +2062,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card .btn:hover {
-    opacity: 0.9;
+    opacity: 0.88; 
+    transform: translateY(-2px);
 }
 
 .card .status {
@@ -1832,25 +2122,21 @@ h1, h2, h3, h4, h5, h6 {
     gap:40px;
 }
 
-.mvv-card{
-
-    background:#0f1b2e;
-
-    border-radius:16px;
-
-    padding:30px;
-
-    color:#ffffff;
-
-    border:1px solid rgba(255,255,255,0.08);
-
-    transition:all .25s ease;
+.mvv-card {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 26px 26px;
+    border-radius: 18px;
+    max-width: 720px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
-.mvv-card:hover{
-    transform:translateY(-6px);
-
-    box-shadow:0 18px 40px rgba(0,0,0,0.15);
+.mvv-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-5px);
 }
 
 .about-title{
@@ -1877,7 +2163,7 @@ h1, h2, h3, h4, h5, h6 {
 .mvv-card li{
     position: relative;
     padding-left: 22px;
-    margin-bottom: 8px;
+    margin-bottom: 0.5px;
 }
 
 .mvv-card li::before{
@@ -1885,6 +2171,18 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     left: 0;
     color: #7ba7ff;
+}
+
+.mvv-card-header {
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+
+.mvv-card-header h3 {
+    text-align: center !important;
+    margin: 0;
 }
 
 .contribuicao-columns{
@@ -1971,8 +2269,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .eventos-home .section-title {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 50px;
+    font-size: 56px;
+    margin-bottom: 10px;
     color: #ffffff;
 }
 
@@ -1986,7 +2284,6 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #ffffff; /* fundo claro para os cards */
     color: #001f3f; /* texto azul escuro */
     border-radius: 12px;
-    overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
@@ -2043,7 +2340,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Mensagem caso não tenha eventos */
 .eventos-home p {
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 20px;
     color: #ffffff;
 }
 
@@ -2051,4 +2348,766 @@ h1, h2, h3, h4, h5, h6 {
 .evento-card h3, 
 .evento-card p {
     color: #001f3f !important;
+}
+
+/* =========================
+   PÁGINA CÓDIGO SOCIAL (FUNDO CLARO)
+========================= */
+
+.section-light {
+    color: #111; /* texto padrão preto */
+}
+
+/* força texto preto na página */
+.section-light p,
+.section-light h2,
+.section-light h3,
+.section-light h4,
+.section-light li,
+.section-light span,
+.section-light a {
+    color: #111;
+}
+
+/* mantém o hero branco */
+.section-light .hero h1,
+.section-light .hero p {
+    color: white;
+}
+
+/* garante que o coração continue normal */
+.section-light .hero img {
+    filter: none;
+}
+
+.section-light .card {
+    color: #111;
+}
+
+.section-light .card {
+    background-color: #ffffff;
+    color: #111;
+}
+
+.section-light .card h3,
+.section-light .card p {
+    color: #111;
+}
+
+footer,
+footer p,
+footer a,
+footer span,
+footer li,
+footer h1,
+footer h2,
+footer h3,
+footer h4 {
+    color: #ffffff;
+}
+
+.section-light .mvv-card {
+    background-color: #ffffff !important;
+    color: #111 !important;
+}
+
+.section-light .mvv-card h3,
+.section-light .mvv-card p,
+.section-light .mvv-card li {
+    color: #111 !important;
+}
+
+.mvv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+    gap: 30px; /* mesmo espaço entre todos */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.mvv-card {
+    width: 100%;
+}
+
+.codigo-social-img{
+    width: 100%;          /* mantém largura da coluna */
+    max-width: 320px;     /* mantém tamanho atual */
+    height: 220px;        /* aumenta altura visual */
+    object-fit: contain;  /* NÃO corta a imagem */
+    border-radius: 10px;
+  }
+
+  .codigo-social-card{
+    height: 320px;              /* controla a altura visual do carrossel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    padding: 10px;
+    border-radius: 12px;
+  
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+  }
+
+#codigoSocialCarousel .row{
+    align-items: center;
+  }
+
+#codigoSocialCarousel .row{
+    min-height: 420px;
+  }
+  #codigoSocialCarousel .col-md-4{
+    display: flex;
+    justify-content: center;
+  }
+
+#codigoSocialCarousel .carousel-item{
+  height: auto;
+}
+
+#codigoSocialCarousel .row{
+    align-items: center;
+  }
+
+  #codigoSocialCarousel .row{
+    min-height: 320px;
+  }
+
+  #codigoSocialCarousel .col-md-4{
+    display: flex;
+    justify-content: center;
+  }
+
+  .codigoSocialCarousel-intro {
+    max-width: 720px;
+    margin: 0 auto 30px auto;
+    text-align: center;
+  }
+  
+  .codigoSocialCarousel-intro h2 {
+    font-size: 32px;
+    margin-bottom: 0.5px;
+  }
+  
+  .codigoSocialCarousel-intro p {
+    color: black;
+    line-height: 1.6;
+  }
+
+  #codigoSocialCarousel{
+    margin-bottom: 35px;
+  }
+
+.navbar,
+.navbar-cs,
+.navbar-gestao,
+.navbar-noticias,
+.navbar-projetos,
+.navbar-servicos,
+.navbar-sobre {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(13, 17, 23, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 10px 40px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.navbar-links,
+.navbar-cs-links,
+.navbar-gestao-links,
+.navbar-noticias-links,
+.navbar-projetos-links,
+.navbar-servicos-links,
+.navbar-sobre-links {
+    display: flex;
+    gap: 40px;
+}
+
+.navbar-links.left,
+.navbar-cs.left,
+.navbar-gestao.left,
+.navbar-noticias.left,
+.navbar-projetos.left,
+.navbar-servicos.left,
+.navbar-sobre.left {
+    justify-content: flex-start;
+}
+
+.navbar-links.right, 
+.navbar-cs.right,
+.navbar-gestao.right,
+.navbar-noticias.right,
+.navbar-projetos.right,
+.navbar-servicos.right,
+.navbar-sobre.right {
+    justify-content: flex-end;
+}
+
+.navbar-links a, 
+.navbar-cs-links a,
+.navbar-gestao-links a,
+.navbar-noticias-links a,
+.navbar-projetos-links a,
+.navbar-servicos-links a,
+.navbar-sobre-links a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-family: 'Teko', sans-serif !important;
+    font-size: 22px !important;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 400;
+    position: relative;
+    transition: color 0.3s ease !important;
+}
+
+.navbar-links a::after,
+.navbar-cs-links a::after,
+.navbar-gestao-links a::after,
+.navbar-noticias-links a::after,
+.navbar-projetos-links a::after,
+.navbar-servicos-links a::after,
+.navbar-sobre-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.navbar-links a:hover,
+.navbar-cs-links a:hover,
+.navbar-gestao-links a:hover,
+.navbar-noticias-links a:hover,
+.navbar-projetos-links a:hover,
+.navbar-servicos-links a:hover,
+.navbar-sobre-links a:hover {
+    color: var(--color-white);
+}
+
+.navbar-links a:hover::after,
+.navbar-cs-links a:hover::after,
+.navbar-gestao-links a:hover::after,
+.navbar-noticias-links a:hover::after,
+.navbar-projetos-links a:hover::after,
+.navbar-servicos-links a:hover::after,
+.navbar-sobre-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.navbar-center,
+.navbar-cs-center,
+.navbar-gestao-center,
+.navbar-noticias-center,
+.navbar-projetos-center,
+.navbar-servicos-center,
+.navbar-sobre-center {
+    text-align: center;
+}
+
+.navbar-center .brand,
+.navbar-cs-center .brand,
+.navbar-gestao-center .brand,
+.navbar-noticias-center .brand,
+.navbar-projetos-center .brand,
+.navbar-servicos-center .brand,
+.navbar-sobre-center .brand {
+    color: white;
+    text-decoration: none;
+    font-family: 'Teko', sans-serif !important;
+    font-size: 28px !important;
+    line-height: 0.9;
+    letter-spacing: 3px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.navbar,
+.navbar,
+.navbar-cs,
+.navbar-gestao,
+.navbar-noticias,
+.navbar-projetos,
+.navbar-servicos,
+.navbar-sobre,
+.navbar a,
+.navbar a,
+.navbar-cs a,
+.navbar-gestao a,
+.navbar-noticias a,
+.navbar-projetos a,
+.navbar-servicos a,
+.navbar-sobre a,
+.navbar .nav-link,
+.navbar-cs .nav-link,
+.navbar-gestao .nav-link,
+.navbar-noticias .nav-link,
+.navbar-projetos .nav-link,
+.navbar-servicos .nav-link,
+.navbar-sobre .nav-link {
+    color: white;
+}
+
+.cs-footer {
+    background-color: var(--color-dark);
+    text-align: center;
+    padding: 50px 20px;
+    border-top: 1px solid var(--glass-border);
+    color: white !important;
+}
+
+.cs-footer p {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 16px !important;
+    margin-bottom: 20px !important;
+    font-family: 'Teko', sans-serif !important;
+}
+
+.cs-footer span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cs-footer a,
+.cs-footer li,
+.cs-footer h1,
+.cs-footer h2,
+.cs-footer h3,
+.cs-footer h4 {
+    color: ffffff !important;
+}
+
+/* =========================
+   BENTO GRID - EVENTOS
+========================= */
+
+.eventos-home .bento-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: 250px 250px;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+/* LINK envolvendo o card */
+.bento-card-link {
+    text-decoration: none;
+    display: block;
+    color: inherit;
+}
+
+/* CARD */
+.bento-card {
+    position: relative;
+    border-radius: 16px;
+    display: flex;
+    align-items: flex-end;
+    transition: all 0.4s ease;
+    height: 100%;
+    overflow: hidden;
+}
+
+.bento-card.destaque {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+}
+
+/* BACKGROUND */
+.bento-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.65;
+    transition: all 0.5s ease;
+}
+
+/* HOVER */
+.bento-card:hover .bento-bg {
+    opacity: 0.7;
+    transform: scale(1.05);
+}
+
+.bento-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--color-dark) 0%, transparent 60%);
+    z-index: 1;
+}
+
+.bento-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    transition: border-color 0.3s ease;
+    z-index: 3;
+}
+
+/* Hover mais forte quando for clicável */
+.bento-card-link:hover .bento-card::after {
+    border-color: var(--color-accent);
+}
+
+/* CONTEÚDO */
+.bento-content {
+    position: relative;
+    z-index: 2;
+    padding: 28px;
+    width: 100%;
+}
+
+.bento-content h3 {
+    font-family: 'Teko', sans-serif;
+    font-size: 28px;
+    color: var(--color-white);
+    margin-bottom: 8px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.bento-content p {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+}
+
+/* Destaque do primeiro card */
+.resumo-destaque {
+    font-size: 16px;
+    opacity: 0.95;
+}
+
+/* "botão" visual (sem ser botão real) */
+.btn-arrow {
+    color: var(--color-accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 1024px) {
+    .eventos-home .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .eventos-home .bento-card.destaque {
+        grid-column: auto;
+        grid-row: auto;
+        min-height: 350px;
+    }
+
+    .eventos-home .bento-card {
+        min-height: 280px;
+    }
+}
+
+.bento-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+
+    opacity: 0.5; 
+    filter: brightness(0.85); 
+
+    transition: all 0.5s ease;
+}
+
+.bento-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0.5) 40%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+
+    z-index: 1;
+}
+
+.bento-content h3 {
+    font-family: 'Teko', sans-serif;
+    font-size: 28px;
+    color: #fff;
+
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.bento-content p {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.92); /* antes era mais apagado */
+
+    line-height: 1.6;
+}
+
+.bento-card:hover .bento-bg {
+    opacity: 0.45;
+    transform: scale(1.03); /* menos zoom agressivo */
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* TÍTULO */
+.intro-text h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--color-white);
+    letter-spacing: 0.5px;
+}
+
+/* TEXTO */
+.intro-text p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    padding-bottom: 26px;
+}
+
+/* DESTAQUE */
+.intro-text strong {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+    .servicos-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 por linha */
+    }
+}
+
+@media (max-width: 600px) {
+    .servicos-grid {
+        grid-template-columns: 1fr; /* 1 por linha */
+    }
+}
+
+@media (max-width: 600px) {
+    .contato-cta { 
+        padding: 40px 20px !important; 
+        margin: 20px 15px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; 
+        text-align: center !important;
+        width: auto !important;
+    }
+    
+    .contato-cta h2 { 
+        font-size: 32px !important; 
+    }
+
+    .btn-email { 
+        width: 100% !important;
+        max-width: 280px !important; 
+        font-size: 16px !important;
+        justify-content: center !important;
+    }
+}
+
+.contato-sub {
+    margin-top: 30px !important;  
+    display: block !important;  
+}
+
+.bento-card {
+    position: relative;
+}
+
+.bento-bg {
+    z-index: 0;
+}
+
+.bento-content {
+    position: relative;
+    z-index: 10;
+}
+
+/* =========================
+   DESIGN DE CARD DE PROJETOS (PROJ-CARD GLOBAIS)
+========================= */
+.proj-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.proj-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 18px 40px rgba(65,105,225,0.2);
+    border-color: rgba(65,105,225,0.35);
+}
+
+.proj-card-img {
+    height: 175px;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(65,105,225,0.15);
+    position: relative;
+}
+
+.proj-card-img::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(15,20,50,0.7), transparent);
+}
+
+.proj-card-body {
+    padding: 22px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.proj-card-body h3 {
+    font-family: 'Teko', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    color: #fff;
+    line-height: 1.15;
+}
+
+.proj-card-body p {
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.82;
+    flex: 1;
+    margin-bottom: 18px;
+}
+
+.proj-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-outline-proj {
+    background: transparent;
+    border: 1px solid rgba(65,105,225,0.5);
+    color: #8ab4ff;
+    padding: 7px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Teko', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: background 0.2s, color 0.2s;
+    text-align: center;
+}
+
+.btn-outline-proj:hover {
+    background: rgba(65,105,225,0.2);
+    color: #fff;
+}
+
+.btn-ext-link {
+    color: rgba(255,255,255,0.5);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.btn-ext-link:hover {
+    color: #fff;
+}
+
+/* Integração do proj-card no bento-grid da Home */
+.bento-grid .proj-card.destaque {
+    grid-column: 1 / 2;
+    grid-row: span 2;
+}
+
+.bento-grid .proj-card.destaque .proj-card-img {
+    height: 250px; /* Deixa a imagem um pouco mais alta para balancear o tamanho duplo do card de destaque */
+}
+
+@media (max-width: 1024px) {
+    .bento-grid .proj-card.destaque {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+
+/* Força o card de destaque a distribuir o conteúdo verticalmente */
+.bento-grid .proj-card.destaque {
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-grid .proj-card.destaque .proj-card-body {
+    flex: 1; /* Faz o corpo (onde está o texto) esticar */
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-grid .proj-card.destaque p {
+    flex: 1; /* O parágrafo cresce para ocupar o espaço vazio */
+    font-size: 17px; /* Aumentamos um pouquinho a fonte apenas no destaque */
+    line-height: 1.6;
+    margin-bottom: 20px;
+    overflow: visible; /* Garante que o texto não seja cortado visualmente */
+}
+
+/* ============================================================
+   AJUSTE ESPECÍFICO PARA O CARD DE DESTAQUE DE PROJETOS NA HOME
+   ============================================================ */
+
+/* Alvo: A imagem dentro do card de destaque na grid da Home */
+.bento-grid .proj-card.destaque .proj-card-img {
+    /* Aumenta a altura da imagem (o padrão do proj-card é 175px) */
+    height: 300px; 
+    
+    /* Garante que a imagem cubra todo o espaço sem distorcer */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Ajuste responsivo: Volta ao tamanho normal em tablets e celulares */
+@media (max-width: 1024px) {
+    .bento-grid .proj-card.destaque .proj-card-img {
+        height: 175px; /* Altura padrão dos outros cards */
+    }
 }

@@ -207,3 +207,27 @@ class CodigoSocialFoto(models.Model):
 
     def __str__(self):
         return self.legenda or "Foto Código Social"
+
+
+class PalestranteCoin(models.Model):
+    nome = models.CharField(max_length=150)
+    cargo = models.CharField(max_length=150)
+    dia_apresentacao = models.IntegerField(help_text="Dia 1, 2, etc.")
+    foto = models.ImageField(upload_to='coin/palestrantes/', blank=True, null=True)
+    ordem = models.IntegerField(default=0)
+
+    class Meta:
+        verbose_name = "Palestrante CoIn"
+        verbose_name_plural = "Palestrantes CoIn"
+
+    def __str__(self):
+        return f"{self.nome} - Dia {self.dia_apresentacao}"
+
+class PatrocinadorCoin(models.Model):
+    nome = models.CharField(max_length=150)
+    logo = models.ImageField(upload_to='coin/patrocinadores/')
+    site_url = models.URLField(blank=True, null=True)
+    ordem = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.nome

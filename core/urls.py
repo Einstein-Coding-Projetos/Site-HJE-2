@@ -11,4 +11,5 @@ urlpatterns = [
     path('codigo-social/', views.codigo_social, name='codigo_social'),
     path('gestao/', views.gestao, name='gestao'),
     path('loja/', views.codigo_loja, name='loja'),
+    path('coin/', views.coin_view, name='coin_page'),
 ]
