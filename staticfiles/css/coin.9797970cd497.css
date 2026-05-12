@@ -1,0 +1,62 @@
+/* FORÇA CAMBRIA NA COIN - SOBRESCREVE O STYLE.CSS */
+.coin-navbar .navbar-links a,
+.coin-navbar .navbar-center .brand {
+    font-family: 'Cambria', Georgia, serif !important;
+}
+
+.coin-theme *,
+.coin-theme h1,
+.coin-theme h2,
+.coin-theme h3,
+.coin-theme h4,
+.coin-theme h5,
+.coin-theme h6,
+.coin-theme p,
+.coin-theme a,
+.coin-theme span,
+.coin-theme button {
+    font-family: 'Cambria', Georgia, serif !important;
+}
+
+.coin-hero {
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 20px !important;
+}
+
+.coin-section-title {
+    color: white !important;
+    font-size: 36px !important;
+    text-shadow: none !important;
+    text-align: left !important;
+}
+
+#evento {
+    background: #1D27B4 !important;
+}
+
+#palestrantes {
+    background: #171f96 !important;
+}
+
+#patrocinadores {
+    background: #111778 !important;
+}
+
+#hackatons {
+    background: #0c1060 !important;
+}
+
+
+#evento,
+#palestrantes,
+#patrocinadores,
+#hackatons {
+    border-radius: 20px !important;
+    margin: 20px !important;
+    padding: 60px 40px !important;
+    min-height: 400px !important;
+}
