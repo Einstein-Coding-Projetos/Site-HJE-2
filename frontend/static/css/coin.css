@@ -1,79 +1,251 @@
-/* FORÇA CAMBRIA NA COIN - SOBRESCREVE O STYLE.CSS */
-.coin-navbar .navbar-links a,
-.coin-navbar .navbar-center .brand {
-    font-family: 'Cambria', Georgia, serif !important;
+/* ===== BASE ===== */
+body {
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Teko', sans-serif;
+    line-height: 1.4;
 }
 
-.coin-theme *,
-.coin-theme h1,
-.coin-theme h2,
-.coin-theme h3,
-.coin-theme h4,
-.coin-theme h5,
-.coin-theme h6,
-.coin-theme p,
-.coin-theme a,
-.coin-theme span,
-.coin-theme button {
-    font-family: 'Cambria', Georgia, serif !important;
+/* ===== NAVBAR ===== */
+.coin-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+    background-color: #0a0a0a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
+.coin-navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+}
+
+.coin-navbar-links.left {
+    justify-content: flex-start;
+}
+
+.coin-navbar-links.right {
+    justify-content: flex-end;
+}
+
+.coin-navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: opacity 0.2s;
+}
+
+.coin-navbar-links a:hover {
+    opacity: 0.6;
+}
+
+.coin-navbar-brand {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 1.1;
+    padding: 0 2rem;
+}
+
+.coin-navbar-brand small {
+    display: block;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 900px) {
+    .coin-navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .coin-navbar-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.2rem;
+    }
+}
+
+/* ===== HERO ===== */
 .coin-hero {
-    min-height: 100vh !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    padding: 0 20px !important;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #1d27b4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.coin-hero-img {
+    width: 100%;
+    max-width: 1400px;
+    height: auto;
+    display: block;
+}
+
+/* ===== SEÇÕES ===== */
+.coin-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    text-align: center;
 }
 
 .coin-section-title {
-    color: white !important;
-    font-size: 36px !important;
-    text-shadow: none !important;
-    text-align: left !important;
-    margin-bottom: 30px !important;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-body #evento p,
-body #palestrantes p,
-body #patrocinadores p,
-body #hackatons p {
-    font-size: 24px !important;
-    text-align: left !important;
-    line-height: 1.8 !important;
+.coin-section-text {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    color: rgba(255, 255, 255, 0.85);
 }
 
-#evento {
-    background: #1D27B4 !important;
+/* ===== PALESTRANTES ===== */
+.coin-dia-title {
+    font-size: 1.5rem;
+    margin: 3rem 0 1.5rem;
+    color: #e9e27a;
+    letter-spacing: 1px;
 }
 
-#palestrantes {
-    background: #171f96 !important;
+.coin-palestrantes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
-#patrocinadores {
-    background: #111778 !important;
+.coin-palestrante-card {
+    background: #111;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
 }
 
-#hackatons {
-    background: #0c1060 !important;
+.coin-palestrante-foto,
+.coin-palestrante-placeholder {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    object-fit: cover;
+    background: #333;
+    display: block;
 }
 
-#evento,
-#palestrantes,
-#patrocinadores,
-#hackatons {
-    border-radius: 20px !important;
-    margin: 20px 40px !important;
-    padding: 60px 40px !important;
-    min-height: 800px !important;
-    max-width: calc(100% - 80px) !important;
+.coin-palestrante-nome {
+    font-size: 1.3rem;
+    margin: 0.5rem 0 0.25rem;
 }
 
+.coin-palestrante-cargo {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+}
 
-html body div.coin-theme section p {
-    font-size: 24px !important;
-    text-align: left !important;
-    line-height: 1.8 !important;
+/* ===== PATROCINADORES ===== */
+.coin-patrocinadores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 2rem;
+    align-items: center;
+    justify-items: center;
+    margin-bottom: 3rem;
+}
+
+.coin-patrocinadores-grid img {
+    max-width: 140px;
+    height: auto;
+    filter: grayscale(100%) brightness(2);
+    opacity: 0.7;
+    transition: filter 0.3s, opacity 0.3s;
+}
+
+.coin-patrocinadores-grid img:hover {
+    filter: none;
+    opacity: 1;
+}
+
+/* ===== BOTÕES (CTA) ===== */
+.coin-cta-button {
+    display: inline-block;
+    background-color: #e9e27a;
+    color: #1d27b4;
+    padding: 0.9rem 2.5rem;
+    border-radius: 999px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.coin-cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.coin-cta-outline {
+    display: inline-block;
+    border: 2px solid #e9e27a;
+    color: #e9e27a;
+    padding: 0.8rem 2.2rem;
+    border-radius: 999px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+.coin-cta-outline:hover {
+    background: #e9e27a;
+    color: #1d27b4;
+}
+
+/* ===== FOOTER ===== */
+.coin-footer {
+    background: #0a0a0a;
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.coin-footer p {
+    margin: 0.3rem 0;
+}
+
+/* ===== UTIL ===== */
+.coin-empty {
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
 }
