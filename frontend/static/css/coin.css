@@ -823,6 +823,7 @@ a.coin-navbar-brand,
     font-weight: 700 !important;
     letter-spacing: 1.2px !important;
     text-transform: uppercase;
+<<<<<<< HEAD
 }
 
 /* ===== NAVBAR COIN LOGO IMAGE ===== */
@@ -838,4 +839,6 @@ a.coin-navbar-brand,
     width: auto;
     height: 4rem;
     object-fit: contain;
+=======
+>>>>>>> c15e657939fb9fb09b4c65b87519bdd7ae945b06
 }

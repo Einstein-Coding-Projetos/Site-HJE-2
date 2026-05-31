@@ -8,6 +8,252 @@
 }
 
 /* =========================
+<<<<<<< HEAD
+=======
+   FONTES OFICIAIS COIN
+========================= */
+@font-face {
+    font-family: 'Lotus Eater Sans';
+    src: url('/static/fonts/LotusEaterSans.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Sackers Gothic';
+    src: url('/static/fonts/SackersGothic.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Balgin';
+    src: url('/static/fonts/Balgin.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* =========================
+   VARIÁVEIS CSS - DESIGN SYSTEM CORPORATIVO
+========================= */
+:root {
+    --color-dark: #0d1117;
+    --color-navy: #1a2744;
+    --color-navy-light: #243654;
+    --color-white: #ffffff;
+    --color-gray-100: #f8f9fa;
+    --color-gray-200: #e9ecef;
+    --color-gray-400: #adb5bd;
+    --color-gray-600: #6c757d;
+    --color-accent: #3b82f6;
+    
+    --glass-bg: rgba(13, 17, 23, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-bg-light: rgba(26, 39, 68, 0.05);
+
+    /* CORES COIN */
+    --coin-neon-purple: #4D28FF;
+    --coin-neon-blue: #4151FF;
+    --coin-dark-blue: #1D27B4;
+    --coin-base-blue: #2430DB;
+    --coin-yellow-highlight: #F6DF78;
+}
+
+/* =========================
+   ESTILOS EXCLUSIVOS DA PÁGINA COIN
+========================= */
+.coin-theme {
+    background-color: var(--coin-dark-blue);
+    background: linear-gradient(135deg, var(--coin-dark-blue) 0%, #151a66 100%);
+    min-height: 100vh;
+    color: white;
+    padding-bottom: 50px;
+    overflow-x: hidden;
+}
+.coin-cta-button {
+    background-color: var(--coin-yellow-highlight);
+    color: var(--coin-dark-blue);
+}
+.coin-title {
+    font-family: 'Lotus Eater Sans', sans-serif;
+}
+.coin-text {
+    font-family: 'Sackers Gothic', sans-serif;
+}
+
+.coin-hero {
+    padding: 180px 20px 100px;
+    text-align: center;
+    position: relative;
+}
+
+.coin-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, var(--coin-neon-purple) 0%, transparent 100%);
+    mix-blend-mode: overlay;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.coin-hero-content {
+    position: relative;
+    z-index: 10;
+}
+
+.coin-title-hero {
+    font-family: 'Lotus Eater Sans', 'Teko', 'Arial Black', sans-serif;
+    font-size: clamp(60px, 12vw, 120px);
+    color: var(--coin-yellow-highlight);
+    margin: 0;
+    text-shadow: 0 0 20px rgba(246, 223, 120, 0.4);
+    line-height: 1;
+    text-transform: none !important;
+    font-feature-settings: "liga" 0, "dlig" 0, "salt" 0, "ss01" 0;
+}
+
+.coin-subtitle {
+    font-family: 'Balgin', 'Rajdhani', 'Teko', sans-serif;
+    font-size: clamp(20px, 4vw, 30px);
+    margin-top: 20px;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+    color: white;
+}
+
+.coin-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.coin-section-title {
+    font-family: 'Lotus Eater Sans', 'Teko', 'Arial Black', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--coin-neon-blue);
+    text-shadow: 0 0 15px rgba(65, 81, 255, 0.4);
+    text-transform: none !important;
+    font-feature-settings: "liga" 0, "dlig" 0, "salt" 0, "ss01" 0;
+}
+
+.coin-speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.coin-speaker-card {
+    background: rgba(36, 48, 219, 0.2);
+    border: 1px solid rgba(65, 81, 255, 0.3);
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.coin-speaker-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(77, 40, 255, 0.3);
+    border-color: var(--coin-neon-blue);
+}
+
+.coin-speaker-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    border: 3px solid var(--coin-yellow-highlight);
+    box-shadow: 0 0 15px rgba(246, 223, 120, 0.3);
+}
+
+.coin-speaker-name {
+    font-family: 'Sackers Gothic', 'Rajdhani', 'Teko', sans-serif;
+    font-size: 24px;
+    color: white;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.coin-speaker-role {
+    font-size: 16px;
+    color: #b0b8ff;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.coin-cta {
+    display: inline-block;
+    padding: 16px 36px;
+    border-radius: 8px;
+    font-family: 'Balgin', 'Teko', sans-serif;
+    font-size: 26px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.coin-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(246, 223, 120, 0.4);
+}
+
+.patrocinadores-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 16px;
+}
+
+.patrocinador-logo {
+    max-width: 180px;
+    max-height: 90px;
+    object-fit: contain;
+    filter: brightness(0) invert(1) opacity(0.7);
+    transition: all 0.3s;
+}
+
+.patrocinador-logo:hover {
+    filter: brightness(1) invert(0) opacity(1);
+    transform: scale(1.05);
+}
+
+.coin-navbar {
+    background: rgba(29, 39, 180, 0.95) !important;
+    border-bottom: 1px solid rgba(65, 81, 255, 0.3) !important;
+}
+.coin-navbar .navbar-links a {
+    font-family: 'Balgin', 'Teko', sans-serif !important;
+}
+.coin-navbar .navbar-center .brand {
+    font-family: 'Abadi', 'Teko', sans-serif !important;
+    color: var(--coin-yellow-highlight) !important;
+    letter-spacing: 4px !important;
+    text-transform: none !important;
+    font-feature-settings: "liga" 0, "dlig" 0, "salt" 0, "ss01" 0 !important;
+}
+.coin-footer {
+    background-color: var(--coin-dark-blue) !important;
+    border-top: 1px solid rgba(65, 81, 255, 0.3) !important;
+    padding: 50px 20px !important;
+    text-align: center !important;
+}
+.coin-footer p, .coin-footer a {
+    font-family: 'Balgin', 'Rajdhani', sans-serif !important;
+    color: rgba(255,255,255,0.7) !important;
+    font-size: 16px !important;
+}
+
+/* =========================
+>>>>>>> c15e657939fb9fb09b4c65b87519bdd7ae945b06
    BODY
 ========================= */
 html,
