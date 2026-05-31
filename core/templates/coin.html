@@ -1,112 +1,258 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoIn - Semana da Inteligência Artificial | HealthTech Júnior Einstein</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'imgs/HJE2.ico' %}">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoIn - Semana da Inteligência Artificial | HealthTech Júnior Einstein</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/coin.css' %}">
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'imgs/HJE2.ico' %}">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
+
 <body style="background: var(--coin-dark-blue);">
 
-    <!-- HEADER COIN -->
-    <header id="desktop-original-header" class="navbar coin-navbar">
-        <nav class="navbar-links left">
-            <a href="{% url 'home' %}">HJE</a>
-        </nav>
-        <div class="navbar-center">
-            <a href="{% url 'coin_page' %}" class="brand">
-                CognitoIn
-            </a>
-        </div>
-        <nav class="navbar-links right">
-            <a href="#cronograma">Cronograma</a>
-            <a href="#patrocinadores">Patrocinadores</a>
-        </nav>
-    </header>
-
-    <div class="coin-theme">
-        <section class="coin-hero">
-            <div class="coin-hero-bg"></div>
-            <div class="coin-hero-content" data-aos="zoom-in">
-                <h1 class="coin-title-hero">CognitoIn</h1>
-                <p class="coin-subtitle">{{ tema_oficial }}</p>
-                <a href="#cronograma" class="coin-cta coin-cta-button">Ver Cronograma</a>
-            </div>
-        </section>
-
-        <section class="coin-section" data-aos="fade-up">
-            <h2 class="coin-section-title" style="color: white; font-size: 36px;">A Semana da IA na Saúde</h2>
-            <p class="coin-text" style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 20px; line-height: 1.8; color: #d1d5db;">
-                A Semana da Inteligência Artificial (CoIn) reúne os maiores especialistas da intersecção entre tecnologia e saúde para discutir inovação, desafios e o futuro da medicina apoiada por dados.
-            </p>
-        </section>
-
-        <section id="cronograma" class="coin-section">
-            {% for dia, lista_palestrantes in dias_evento.items %}
-                <h2 class="coin-section-title" data-aos="fade-right">Dia {{ dia }}</h2>
-                <div class="coin-speakers-grid">
-                    {% for palestrante in lista_palestrantes %}
-                        <div class="coin-speaker-card" data-aos="fade-up" data-aos-delay="{{ forloop.counter0 }}00">
-                            {% if palestrante.foto %}
-                                <img src="{{ palestrante.foto.url }}" alt="{{ palestrante.nome }}" class="coin-speaker-img">
-                            {% else %}
-                                <div class="coin-speaker-img" style="display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.1); border-color: var(--coin-neon-blue);">
-                                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                                </div>
-                            {% endif %}
-                            <h3 class="coin-speaker-name">{{ palestrante.nome }}</h3>
-                            <p class="coin-speaker-role">{{ palestrante.cargo }}</p>
-                        </div>
-                    {% empty %}
-                        <p style="text-align: center; width: 100%; color: #b0b8ff;">Palestrantes sendo confirmados para este dia.</p>
-                    {% endfor %}
-                </div>
-            {% empty %}
-                <p style="text-align: center; color: #b0b8ff; font-size: 20px;" data-aos="fade-up">O cronograma oficial será disponibilizado em breve.</p>
-            {% endfor %}
-        </section>
-
-        <section id="patrocinadores" class="coin-section" style="text-align: center;" data-aos="fade-up">
-            <h2 class="coin-section-title" style="color: var(--coin-yellow-highlight);">Apoio e Hackathons</h2>
-            
-            <div class="patrocinadores-grid">
-                {% for patrocinador in patrocinadores %}
-                    {% if patrocinador.site_url %}
-                        <a href="{{ patrocinador.site_url }}" target="_blank">
-                            <img src="{{ patrocinador.logo.url }}" alt="{{ patrocinador.nome }}" class="patrocinador-logo">
-                        </a>
-                    {% else %}
-                        <img src="{{ patrocinador.logo.url }}" alt="{{ patrocinador.nome }}" class="patrocinador-logo">
-                    {% endif %}
-                {% empty %}
-                    <p style="color: #b0b8ff;">Seja o primeiro patrocinador do evento.</p>
-                {% endfor %}
-            </div>
-
-            <a href="mailto:healthtechjr.einstein@gmail.com" class="coin-cta" style="border: 2px solid var(--coin-yellow-highlight); color: var(--coin-yellow-highlight);">
-                Seja um Patrocinador
-            </a>
-        </section>
+  <!-- HEADER COIN -->
+  <header id="desktop-original-header" class="navbar coin-navbar">
+    <nav class="navbar-links coin-navbar-links left">
+      <a href="{% url 'home' %}">HJE</a>
+    </nav>
+    <div class="navbar-center">
+      <a href="{% url 'coin_page' %}" class="brand coin-navbar-brand">
+        CognitoIn
+      </a>
     </div>
+    <nav class="navbar-links coin-navbar-links right">
+      <a href="#cronograma">Palestrantes</a>
+      <a href="#patrocinadores">Patrocinadores</a>
+      <a href="#hackathons">Hackathons</a>
+    </nav>
+  </header>
 
-    <footer class="footer coin-footer">
-        <p>© 2026 Healthtech Júnior Einstein | CoIn</p>
-        <div class="social-links">
-            <a href="https://www.instagram.com/healthtechjr.einstein/" target="_blank"><img src="{% static 'imgs/instagram.svg' %}" alt="Instagram"></a>
-            <a href="https://www.linkedin.com/company/einsteincoding/" target="_blank"><img src="{% static 'imgs/linkedin.svg' %}" alt="LinkedIn"></a>
+  <div class="coin-theme">
+    <section class="coin-hero">
+      <div class="coin-hero-bg"></div>
+      <img src="{% static 'imgs/coin-waves.png' %}" alt="" class="coin-hero-waves" aria-hidden="true">
+      <div class="coin-hero-content" data-aos="zoom-in">
+        <img src="{% static 'imgs/logo-cognito.png' %}" alt="CognitoIn" class="coin-hero-image">
+        <a href="#cronograma" class="coin-cta coin-cta-button">Ver Palestrantes</a>
+      </div>
+    </section>
+
+    <section class="coin-section coin-intro-section" data-aos="fade-up">
+      <p class="coin-section-kicker">Inteligência artificial aplicada à saúde</p>
+      <h2 class="coin-section-title">A Semana da IA na Saude</h2>
+      <p class="coin-section-text">
+        A Semana da Inteligência Artificial (CoIn) reúne especialistas da intersecção entre tecnologia e saúde para
+        discutir inovação, desafios e o futuro da medicina apoiada por dados.
+      </p>
+      <div class="coin-feature-grid">
+        <article class="coin-feature-card">
+          <span class="coin-feature-icon">01</span>
+          <h3>Inovação</h3>
+          <p>Conversas sobre novas soluções digitais, pesquisa aplicada e tecnologias emergentes.</p>
+        </article>
+        <article class="coin-feature-card">
+          <span class="coin-feature-icon">02</span>
+          <h3>Saúde</h3>
+          <p>Debates sobre impacto clínico, cuidado centrado no paciente e uso responsável de dados.</p>
+        </article>
+        <article class="coin-feature-card">
+          <span class="coin-feature-icon">03</span>
+          <h3>Conexão</h3>
+          <p>Um encontro para aproximar estudantes, profissionais, empresas e pesquisadores.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="cronograma" class="coin-section coin-schedule-section">
+      <p class="coin-section-kicker">Programação</p>
+      <h2 class="coin-section-title">Palestrantes</h2>
+      {% for dia, lista_palestrantes in dias_evento.items %}
+      <h3 class="coin-dia-title" data-aos="fade-right">Dia {{ dia }}</h3>
+      <div class="coin-speakers-grid">
+        {% for palestrante in lista_palestrantes %}
+        <a href="#palestrante-{{ dia }}-{{ forloop.counter }}" class="coin-speaker-card coin-click-card"
+          data-aos="fade-up" data-aos-delay="{{ forloop.counter0 }}00">
+          {% if palestrante.foto %}
+          <img src="{{ palestrante.foto.url }}" alt="{{ palestrante.nome }}" class="coin-speaker-img">
+          {% else %}
+          <div class="coin-speaker-img"
+            style="display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.1); border-color: var(--coin-neon-blue);">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          {% endif %}
+          <h3 class="coin-speaker-name">{{ palestrante.nome }}</h3>
+          <p class="coin-speaker-role">{{ palestrante.cargo }}</p>
+        </a>
+        <div id="palestrante-{{ dia }}-{{ forloop.counter }}" class="coin-modal">
+          <a href="#cronograma" class="coin-modal-backdrop" aria-label="Fechar"></a>
+          <div class="coin-modal-card">
+            <a href="#cronograma" class="coin-modal-close" aria-label="Fechar">×</a>
+            {% if palestrante.foto %}
+            <img src="{{ palestrante.foto.url }}" alt="{{ palestrante.nome }}" class="coin-modal-img">
+            {% endif %}
+            <p class="coin-modal-kicker">Palestrante · Dia {{ dia }}</p>
+            <h3>{{ palestrante.nome }}</h3>
+            <p>{{ palestrante.cargo }}</p>
+          </div>
         </div>
-        <p>Email: healthtechjr.einstein@gmail.com</p>
-    </footer>
+        {% empty %}
+        <p class="coin-empty">Palestrantes sendo confirmados para este dia.</p>
+        {% endfor %}
+      </div>
+      {% empty %}
+      <div class="coin-speakers-grid coin-placeholder-grid" data-aos="fade-up">
+        <a href="#palestrante-placeholder-1" class="coin-speaker-card coin-click-card">
+          <img src="{% static 'imgs/palestrante.png' %}" alt="Palestrante" class="coin-speaker-img">
+          <h3 class="coin-speaker-name">Palestrante 01</h3>
+          <p class="coin-speaker-role">Especialista em IA na Saúde</p>
+        </a>
+        <div id="palestrante-placeholder-1" class="coin-modal">
+          <a href="#cronograma" class="coin-modal-backdrop" aria-label="Fechar"></a>
+          <div class="coin-modal-card">
+            <a href="#cronograma" class="coin-modal-close" aria-label="Fechar">×</a>
+            <img src="{% static 'imgs/palestrante.png' %}" alt="Palestrante" class="coin-modal-img">
+            <p class="coin-modal-kicker">Palestrante</p>
+            <p>Mais informações sobre a pessoa convidada serão adicionadas em breve.</p>
+          </div>
+        </div>
+        <a href="#palestrante-placeholder-2" class="coin-speaker-card coin-click-card">
+          <img src="{% static 'imgs/palestrante.png' %}" alt="Palestrante" class="coin-speaker-img">
+          <h3 class="coin-speaker-name">Palestrante 02</h3>
+          <p class="coin-speaker-role">Pesquisa, Dados e Tecnologia</p>
+        </a>
+        <div id="palestrante-placeholder-2" class="coin-modal">
+          <a href="#cronograma" class="coin-modal-backdrop" aria-label="Fechar"></a>
+          <div class="coin-modal-card">
+            <a href="#cronograma" class="coin-modal-close" aria-label="Fechar">×</a>
+            <img src="{% static 'imgs/palestrante.png' %}" alt="Palestrante" class="coin-modal-img">
+            <p class="coin-modal-kicker">Palestrante</p>
+            <p>Mais informações sobre a pessoa convidada serão adicionadas em breve.</p>
+          </div>
+        </div>
+        <a href="#palestrante-placeholder-3" class="coin-speaker-card coin-click-card">
+          <img src="{% static 'imgs/palestrante.png' %}" alt="Palestrante" class="coin-speaker-img">
+          <h3 class="coin-speaker-name">Palestrante 03</h3>
+          <p class="coin-speaker-role">Inovação em Saúde Digital</p>
+        </a>
+        <div id="palestrante-placeholder-3" class="coin-modal">
+          <a href="#cronograma" class="coin-modal-backdrop" aria-label="Fechar"></a>
+          <div class="coin-modal-card">
+            <a href="#cronograma" class="coin-modal-close" aria-label="Fechar">×</a>
+            <img src="{% static 'imgs/palestrante.png' %}" alt="Palestrante" class="coin-modal-img">
+            <p class="coin-modal-kicker">Palestrante</p>
+            <p>Mais informações sobre a pessoa convidada serão adicionadas em breve.</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
-    </script>
+    <section id="patrocinadores" class="coin-section coin-sponsors-section" data-aos="fade-up">
+      <p class="coin-section-kicker">Ecossistema</p>
+      <h2 class="coin-section-title">Apoio e Patrocinadores</h2>
+
+      <div class="patrocinadores-grid">
+        {% for patrocinador in patrocinadores %}
+        <a href="#patrocinador-{{ forloop.counter }}" class="coin-sponsor-card coin-click-card">
+          <img src="{{ patrocinador.logo.url }}" alt="{{ patrocinador.nome }}" class="patrocinador-logo">
+          <span>{{ patrocinador.nome }}</span>
+        </a>
+        <div id="patrocinador-{{ forloop.counter }}" class="coin-modal">
+          <a href="#patrocinadores" class="coin-modal-backdrop" aria-label="Fechar"></a>
+          <div class="coin-modal-card">
+            <a href="#patrocinadores" class="coin-modal-close" aria-label="Fechar">×</a>
+            <img src="{{ patrocinador.logo.url }}" alt="{{ patrocinador.nome }}" class="coin-modal-img coin-modal-logo">
+            <p class="coin-modal-kicker">Apoio e Patrocinadores</p>
+            <h3>{{ patrocinador.nome }}</h3>
+            {% if patrocinador.site_url %}
+            <a href="{{ patrocinador.site_url }}" target="_blank" class="coin-modal-link">Visitar site</a>
+            {% endif %}
+          </div>
+        </div>
+        {% empty %}
+        <a href="#patrocinador-placeholder-1" class="coin-sponsor-card coin-click-card">
+          <img src="{% static 'imgs/palestrante.png' %}" alt="Patrocinador" class="patrocinador-logo">
+          <span>Patrocinador 01</span>
+        </a>
+        <div id="patrocinador-placeholder-1" class="coin-modal">
+          <a href="#patrocinadores" class="coin-modal-backdrop" aria-label="Fechar"></a>
+          <div class="coin-modal-card">
+            <a href="#patrocinadores" class="coin-modal-close" aria-label="Fechar">×</a>
+            <img src="{% static 'imgs/palestrante.png' %}" alt="Patrocinador" class="coin-modal-img coin-modal-logo">
+            <p class="coin-modal-kicker">Apoio e Patrocinadores</p>
+            <p>Mais informações sobre o parceiro serão adicionadas em breve.</p>
+          </div>
+        </div>
+        <a href="#patrocinador-placeholder-2" class="coin-sponsor-card coin-click-card">
+          <img src="{% static 'imgs/palestrante.png' %}" alt="Patrocinador" class="patrocinador-logo">
+          <span>Patrocinador 02</span>
+        </a>
+        <div id="patrocinador-placeholder-2" class="coin-modal">
+          <a href="#patrocinadores" class="coin-modal-backdrop" aria-label="Fechar"></a>
+          <div class="coin-modal-card">
+            <a href="#patrocinadores" class="coin-modal-close" aria-label="Fechar">×</a>
+            <img src="{% static 'imgs/palestrante.png' %}" alt="Patrocinador" class="coin-modal-img coin-modal-logo">
+            <p class="coin-modal-kicker">Apoio e Patrocinadores</p>
+            <p>Mais informações sobre o parceiro serão adicionadas em breve.</p>
+          </div>
+        </div>
+        <a href="#patrocinador-placeholder-3" class="coin-sponsor-card coin-click-card">
+          <img src="{% static 'imgs/palestrante.png' %}" alt="Patrocinador" class="patrocinador-logo">
+          <span>Patrocinador 03</span>
+        </a>
+        <div id="patrocinador-placeholder-3" class="coin-modal">
+          <a href="#patrocinadores" class="coin-modal-backdrop" aria-label="Fechar"></a>
+          <div class="coin-modal-card">
+            <a href="#patrocinadores" class="coin-modal-close" aria-label="Fechar">×</a>
+            <img src="{% static 'imgs/palestrante.png' %}" alt="Patrocinador" class="coin-modal-img coin-modal-logo">
+            <p class="coin-modal-kicker">Apoio e Patrocinadores</p>
+            <p>Mais informações sobre o parceiro serão adicionadas em breve.</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <a href="mailto:healthtechjr.einstein@gmail.com" class="coin-cta coin-cta-outline">
+        Seja um Patrocinador
+      </a>
+    </section>
+
+    <section id="hackathons" class="coin-section coin-hackathon-section" data-aos="fade-up">
+      <div class="coin-hackathon-panel">
+        <p class="coin-section-kicker">Experiência prática</p>
+        <h2 class="coin-section-title">Hackathons</h2>
+        <p class="coin-section-text">
+          Em breve, mais informações sobre os hackathons do evento.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer coin-footer">
+    <p>© 2026 Healthtech Júnior Einstein | CoIn</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/healthtechjr.einstein/" target="_blank"><img
+          src="{% static 'imgs/instagram.svg' %}" alt="Instagram"></a>
+      <a href="https://www.linkedin.com/company/einsteincoding/" target="_blank"><img
+          src="{% static 'imgs/linkedin.svg' %}" alt="LinkedIn"></a>
+    </div>
+    <p>Email: healthtechjr.einstein@gmail.com</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
+
 </html>
