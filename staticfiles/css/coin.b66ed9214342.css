@@ -1,0 +1,841 @@
+@font-face {
+    font-family: 'Sackers Gothic';
+    src: url("../fonts/SackersGothic.9e4af07c98f8.ttf") format('truetype');
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Balgin';
+    src: url("../fonts/Balgin.f13da302c4c0.otf") format('opentype');
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Abadi';
+    src: url("../fonts/abadi-font-family/AbadiMT.2b85e7596d49.ttf") format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Abadi';
+    src: url("../fonts/abadi-font-family/AbadiMT-Bold.db472e40a055.ttf") format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Abadi', 'Sackers Gothic', sans-serif;
+    line-height: 1.4;
+}
+
+.coin-theme {
+    background: #02040b;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ===== NAVBAR ===== */
+.coin-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.4rem;
+    padding: 0.75rem 2rem;
+    background: #0c1481;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.coin-navbar::before,
+.coin-navbar::after {
+    display: none;
+}
+
+.coin-navbar-links {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+}
+
+.coin-navbar-links.left {
+    justify-content: flex-start;
+}
+
+.coin-navbar-links.right {
+    justify-content: flex-end;
+}
+
+.coin-navbar-links a,
+.coin-navbar-brand {
+    color: #fff;
+    font-family: 'Abadi', 'Sackers Gothic', sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.coin-navbar-links a {
+    font-size: 0.88rem !important;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    transition: opacity 0.2s;
+}
+
+.coin-navbar-links a:hover {
+    opacity: 0.6;
+}
+
+.coin-navbar-brand {
+    display: block;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.96rem;
+    letter-spacing: 1.8px;
+    line-height: 1.1;
+    padding: 0 2rem;
+}
+
+.coin-navbar-brand small {
+    display: block;
+    font-size: 0.5rem;
+}
+
+/* ===== HERO ===== */
+.coin-hero {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #1d27b4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.coin-hero-bg {
+    background-color: #1d27b4;
+}
+
+.coin-hero-content {
+    position: relative;
+    z-index: 1;
+    width: min(92vw, 1200px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.coin-hero-image {
+    display: block;
+    width: 100%;
+    max-width: 980px;
+    height: auto;
+}
+
+.coin-hero-waves {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    width: min(42vw, 520px);
+    height: auto;
+    object-fit: initial;
+    pointer-events: none;
+}
+
+/* ===== GENERAL SECTIONS ===== */
+.coin-section {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 7rem 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.coin-section-title {
+    font-family: 'Balgin', 'Sackers Gothic', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    margin: 0 0 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #ffffff;
+    text-shadow: none;
+}
+
+.coin-section-text {
+    font-family: 'Abadi', 'Sackers Gothic', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.35rem, 2vw, 1.8rem);
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    color: rgba(226, 242, 255, 0.78);
+    line-height: 1.45;
+    letter-spacing: 0.4px;
+}
+
+.coin-section-kicker {
+    margin: 0 0 1rem;
+    color: #49d7ff;
+    font-size: 0.82rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ===== INTRO SECTION ===== */
+.coin-intro-section {
+    max-width: none;
+    min-height: 68vh;
+    background: #0c1481;
+    padding: 7rem 2rem;
+    text-align: center;
+}
+
+.coin-intro-section .coin-section-kicker {
+    display: none;
+}
+
+.coin-intro-section .coin-section-title {
+    white-space: nowrap;
+    max-width: none;
+    font-size: clamp(2rem, 3.3vw, 3.2rem);
+    margin: 0 auto 2.4rem;
+}
+
+.coin-intro-section .coin-section-text {
+    width: 90vw;
+    max-width: 1120px;
+    margin: 0 auto 4.8rem;
+    color: rgba(226, 242, 255, 0.78);
+    font-size: clamp(1.45rem, 1.9vw, 1.95rem);
+    line-height: 1.35;
+    letter-spacing: 0.2px;
+}
+
+.coin-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    gap: 2.2rem;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.coin-feature-card {
+    min-height: 300px;
+    padding: 2.8rem 2.4rem;
+    display: grid;
+    grid-template-columns: 3.4rem 1fr;
+    grid-template-rows: auto 1fr;
+    column-gap: 1rem;
+    align-items: start;
+    text-align: left;
+    border-radius: 18px;
+    background: #faf2d2;
+    border: 1px solid rgba(250, 242, 210, 0.8);
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.16);
+    position: relative;
+    overflow: hidden;
+}
+
+.coin-feature-card::before {
+    display: none;
+}
+
+.coin-feature-icon {
+    grid-column: 1;
+    grid-row: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.4rem;
+    height: 3.4rem;
+    margin-bottom: 0;
+    border: 1px solid rgba(12, 20, 129, 0.18);
+    border-radius: 14px;
+    background: rgba(12, 20, 129, 0.04);
+    color: #0c1481;
+    box-shadow: 0 0 24px rgba(73, 215, 255, 0.14);
+}
+
+.coin-feature-card h3 {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    margin: 0;
+    color: #0c1481;
+    font-family: 'Abadi', 'Sackers Gothic', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.coin-feature-card p {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 1.4rem 0 0;
+    color: #0c1481;
+    font-family: 'Abadi', 'Sackers Gothic', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+/* ===== PALESTRANTES ===== */
+.coin-schedule-section {
+    max-width: none;
+    min-height: 64vh;
+    background: #ffffff;
+    padding-top: 6rem;
+    padding-bottom: 8rem;
+}
+
+.coin-schedule-section>* {
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.coin-schedule-section .coin-section-title,
+.coin-schedule-section .coin-speaker-name {
+    color: #0c1481;
+    text-shadow: none;
+}
+
+.coin-schedule-section .coin-section-kicker,
+.coin-schedule-section .coin-dia-title,
+.coin-schedule-section .coin-empty {
+    color: #1d27b4;
+}
+
+.coin-dia-title {
+    font-size: 1.35rem;
+    margin: 4rem 0 1.5rem;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.coin-speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+    margin-top: 4.2rem;
+    margin-bottom: 0;
+}
+
+.coin-speaker-card {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+/* ===== SHARED PERSON/SPONSOR CARDS ===== */
+.coin-speaker-card,
+.coin-sponsor-card {
+    background: #ecdb8e;
+    border: 1px solid rgba(12, 20, 129, 0.16);
+    border-radius: 18px;
+    box-shadow: 0 18px 45px rgba(12, 20, 129, 0.12);
+    color: #0c1481;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.coin-speaker-card::before,
+.coin-sponsor-card::before {
+    display: none;
+}
+
+.coin-speaker-card:hover,
+.coin-sponsor-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.2);
+}
+
+.coin-speaker-img,
+.coin-sponsors-section .patrocinador-logo {
+    width: 138px;
+    height: 138px;
+    max-width: 138px;
+    max-height: 138px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    object-fit: cover;
+    background: #ffffff;
+    border: 1px solid rgba(73, 215, 255, 0.32);
+    display: block;
+    position: relative;
+    z-index: 1;
+    filter: none;
+    opacity: 1;
+}
+
+.coin-speaker-name,
+.coin-speaker-role,
+.coin-sponsor-card span {
+    color: #0c1481;
+    font-family: 'Abadi', 'Sackers Gothic', sans-serif;
+    position: relative;
+    z-index: 1;
+}
+
+.coin-speaker-name,
+.coin-sponsor-card span {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0.5rem 0 0.25rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.coin-speaker-role {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* ===== PATROCINADORES ===== */
+.coin-sponsors-section {
+    max-width: none;
+    min-height: 68vh;
+    background: #1d27b4;
+}
+
+.coin-sponsors-section>* {
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.coin-sponsors-section .coin-section-title {
+    color: #ffffff;
+    text-shadow: none;
+}
+
+.coin-sponsors-section .coin-section-kicker,
+.coin-sponsors-section .coin-empty {
+    color: #1d27b4;
+}
+
+.patrocinadores-grid,
+.coin-patrocinadores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+    align-items: center;
+    justify-items: center;
+    margin-top: 2.4rem;
+    margin-bottom: 3rem;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 22px;
+    background: transparent;
+    box-shadow: none;
+}
+
+.coin-sponsor-card {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    min-height: 220px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+/* ===== HACKATHONS ===== */
+.coin-hackathon-section {
+    max-width: none;
+    min-height: 68vh;
+    background: #0c1481;
+}
+
+.coin-hackathon-panel {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.coin-hackathon-panel::before {
+    display: none;
+}
+
+.coin-hackathon-panel .coin-section-text {
+    margin-bottom: 0;
+}
+
+.coin-hackathon-section .coin-section-kicker,
+.coin-hackathon-section .coin-section-title,
+.coin-hackathon-section .coin-section-text {
+    color: #ffffff;
+    text-shadow: none;
+}
+
+.coin-hackathon-section .coin-section-title {
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+}
+
+.coin-hackathon-section .coin-section-text {
+    color: rgba(255, 255, 255, 0.82);
+    font-family: 'Abadi', 'Sackers Gothic', sans-serif;
+    line-height: 1.55;
+    letter-spacing: 0.5px;
+}
+
+/* ===== CTA BUTTONS ===== */
+.coin-cta,
+.coin-cta-button,
+.coin-cta-outline {
+    font-family: 'Abadi', 'Sackers Gothic', sans-serif;
+}
+
+.coin-cta {
+    display: inline-block;
+}
+
+.coin-cta-button {
+    display: inline-block;
+    background-color: #e9e27a;
+    color: #1d27b4;
+    padding: 0.9rem 2.5rem;
+    border-radius: 999px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.coin-cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.coin-cta-outline {
+    display: inline-block;
+    border: 2px solid #e9e27a;
+    color: #e9e27a;
+    padding: 0.8rem 2.2rem;
+    border-radius: 999px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+.coin-cta-outline:hover {
+    background: #e9e27a;
+    color: #1d27b4;
+}
+
+/* ===== MODALS ===== */
+.coin-modal {
+    display: none;
+}
+
+.coin-modal:target {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.coin-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(2, 4, 11, 0.76);
+    backdrop-filter: blur(4px);
+}
+
+.coin-modal-card {
+    width: min(92vw, 620px);
+    min-height: 260px;
+    position: relative;
+    z-index: 1;
+    padding: 3rem 2.5rem;
+    border-radius: 12px;
+    background: rgba(236, 219, 142, 0.96);
+    color: #0c1481;
+    box-shadow: 0 28px 90px rgba(0, 0, 0, 0.45);
+    text-align: center;
+}
+
+.coin-modal-close {
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(12, 20, 129, 0.14);
+    color: #0c1481;
+    text-decoration: none;
+    font-size: 1.4rem;
+}
+
+.coin-modal-img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1.2rem;
+}
+
+.coin-modal-logo {
+    border-radius: 0;
+    object-fit: contain;
+}
+
+.coin-modal-kicker {
+    margin: 0 0 0.8rem;
+    color: #1d27b4;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+}
+
+.coin-modal-card h3 {
+    margin: 0 0 1rem;
+    font-size: 1.35rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.coin-modal-card p {
+    font-family: 'Abadi', 'Sackers Gothic', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.35;
+}
+
+.coin-modal-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #0c1481;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===== FOOTER / UTIL ===== */
+.coin-empty {
+    width: 100%;
+    color: #1d27b4;
+    font-family: 'Abadi', 'Sackers Gothic', sans-serif;
+    font-size: 1.45rem;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.coin-click-card {
+    cursor: pointer;
+}
+
+.coin-footer {
+    background: #020d1f;
+    padding: 2rem;
+    text-align: center;
+    border-top: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Abadi', 'Sackers Gothic', sans-serif;
+}
+
+.coin-footer p {
+    margin: 0.3rem 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .coin-navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .coin-navbar-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.2rem;
+    }
+
+    .coin-hero-waves {
+        width: min(62vw, 360px);
+        bottom: 2rem;
+        height: auto;
+        opacity: 0.7;
+    }
+
+    .coin-intro-section .coin-section-title {
+        white-space: normal;
+    }
+
+    .coin-feature-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== RESTORE SACKERS GOTHIC DETAILS ===== */
+.coin-navbar-links a,
+.coin-navbar-brand,
+.coin-section-kicker,
+.coin-feature-icon,
+.coin-feature-card h3,
+.coin-speaker-name,
+.coin-sponsor-card span,
+.coin-modal-kicker,
+.coin-modal-link,
+.coin-cta-button,
+.coin-cta-outline,
+.coin-dia-title {
+    font-family: 'Sackers Gothic', 'Sackers Gothic Std', sans-serif;
+}
+
+/* ===== NAVBAR SACKERS GOTHIC FINAL ===== */
+.coin-navbar,
+.coin-navbar a,
+.coin-navbar-brand,
+.coin-navbar-links,
+.coin-navbar-links a {
+    font-family: 'Sackers Gothic', 'Sackers Gothic Std', sans-serif !important;
+}
+
+/* ===== NAVBAR BRAND SACKERS FORCE ===== */
+.coin-navbar .coin-navbar-brand,
+.coin-navbar-brand,
+a.coin-navbar-brand {
+    font-family: 'Sackers Gothic', 'Sackers Gothic Std', sans-serif !important;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+/* ===== NAVBAR BRAND SIZE MATCH ===== */
+.coin-navbar-brand {
+    font-size: 0.88rem !important;
+    letter-spacing: 1.6px !important;
+    font-weight: 700;
+}
+
+/* ===== FINAL NAVBAR BRAND + CARD DETAILS FONT FIX ===== */
+.coin-navbar .coin-navbar-brand,
+.coin-navbar a.coin-navbar-brand,
+a.coin-navbar-brand,
+.coin-navbar-brand {
+    font-family: 'Sackers Gothic', 'Sackers Gothic Std', sans-serif !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 1.6px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+}
+
+/* Force card detail labels back to Sackers Gothic */
+.coin-speaker-name,
+.coin-sponsor-card span,
+.coin-sponsors-section .coin-sponsor-card span,
+.coin-schedule-section .coin-speaker-name {
+    font-family: 'Sackers Gothic', 'Sackers Gothic Std', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.2px !important;
+}
+
+/* ===== FINAL FONT CORRECTIONS ===== */
+
+/* Match COGNITOIN to the other navbar links */
+.coin-navbar .coin-navbar-brand,
+.coin-navbar a.coin-navbar-brand,
+a.coin-navbar-brand,
+.coin-navbar-brand {
+    font-family: 'Sackers Gothic', 'Sackers Gothic Std', sans-serif !important;
+    font-size: 0.88rem !important;
+    letter-spacing: 1.6px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+}
+
+/* Force card detail labels to Sackers Gothic */
+.coin-schedule-section .coin-speaker-card .coin-speaker-name,
+.coin-sponsors-section .coin-sponsor-card span {
+    font-family: 'Sackers Gothic', 'Sackers Gothic Std', sans-serif !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.2px !important;
+    text-transform: uppercase;
+}
+
+/* ===== FINAL ABADI DETAILS + BIGGER NAVBAR BRAND ===== */
+
+/* Make COGNITOIN a little bigger */
+.coin-navbar .coin-navbar-brand,
+.coin-navbar a.coin-navbar-brand,
+a.coin-navbar-brand,
+.coin-navbar-brand {
+    font-family: 'Sackers Gothic', 'Sackers Gothic Std', sans-serif !important;
+    font-size: 1rem !important;
+    letter-spacing: 1.7px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+}
+
+/* Make card detail labels Abadi */
+.coin-schedule-section .coin-speaker-card .coin-speaker-name,
+.coin-sponsors-section .coin-sponsor-card span {
+    font-family: 'Abadi', 'Sackers Gothic', sans-serif !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.2px !important;
+    text-transform: uppercase;
+}
+
+/* ===== NAVBAR COIN LOGO IMAGE ===== */
+.coin-navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+}
+
+.coin-navbar-logo {
+    display: block;
+    width: auto;
+    height: 4rem;
+    object-fit: contain;
+}
