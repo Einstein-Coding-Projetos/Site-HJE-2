@@ -140,3 +140,4 @@ Levantamento_de_Requisitos:
     - "O sistema deve apresentar desempenho estável e tempo de resposta adequado."
 
 ```
+# COIN-giulia
